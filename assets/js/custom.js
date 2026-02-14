@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    playVideoWithDelayAndLoop('heroVideo', 800);
-    animateWords('.heading-animation-section');
-    initMWGEffect005();
+    // playVideoWithDelayAndLoop('heroVideo', 800);
+    // animateWords('.heading-animation-section');
+    // initMWGEffect005();
     initMWGEffect001();
 });
 
@@ -34,7 +34,9 @@ function playVideoWithDelayAndLoop(videoId, delay = 500) {
 
 function animateWords(sectionSelector) {
   document.querySelectorAll(sectionSelector).forEach(section => {
+    // console.log(section)
     section.querySelectorAll('.word').forEach(word => {
+        console.log(word.children)
       gsap.to(word.children, {
         yPercent: '+=100',
         ease: 'expo.inOut',
@@ -53,6 +55,8 @@ function initMWGEffect005() {
 
     // Loop through all .content-section sections
     document.querySelectorAll(".content-section").forEach(section => {
+
+        if(!section) return;
 
         const heading = section.querySelector("h2");
         const paragraph = section.querySelector(".paragraph");
@@ -99,7 +103,9 @@ function wrapWords(element) {
 }
 
 function initMWGEffect001() {
-    document.querySelectorAll('.mwg_effect001').forEach(section => {
+    document.querySelectorAll('.work-section').forEach(section => {
+
+        if(!section) return;
         const container = section.querySelector('.container');
         const cardsContainer = container.querySelector('.cards');
         const cards = container.querySelectorAll('.card');

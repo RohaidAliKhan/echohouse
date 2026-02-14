@@ -23,6 +23,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'justus-roman';
+  src: url('/assets/fonts/justus-roman.ttf') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* ==============================
    ROOT VARIABLES
 ============================== */
@@ -57,7 +64,7 @@
 body {
   font-family: 'Helvetica-std-roman', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--white-color);
   background-color: var(--dark-color);
@@ -87,6 +94,10 @@ img {
     color: var(--primary-color);
 }
 
+.is-mobile {
+    display: none;
+}
+
 /* ==============================
    TYPOGRAPHY
 ============================== */
@@ -110,6 +121,21 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+.heading-style-h3 {
+    font-size: 2.25rem;
+    line-height: 1;
+    font-family: 'Helvetica-std-bd', sans-serif;
+    font-weight: 700;
+}
+
+.heading-style-h4 {
+    font-size: 1.7rem;
+    line-height: 1;
+    font-family: 'justus-roman', sans-serif;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
 .section-title {
   font-size: 2.2rem;
   margin-bottom: 20px;
@@ -128,6 +154,12 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 2rem;
+    background: var(--dark-color);
+}
+
+.theme-button.is-small {
+    padding: 1.2rem 1.7rem;
+    padding-right: 1.5rem;
 }
 
 .btn-custom:hover {
@@ -195,6 +227,19 @@ html.lenis body {
 
 .navbar a.navbar-brand img {
     width: 120px;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+.offcanvas.offcanvas-end {
+    background: var(--dark-color);
+    color: white;
+}
+
+.offcanvas-header .btn-close {
+    filter: brightness(0) invert(1);
 }
 
 /* ==============================
@@ -297,6 +342,17 @@ section {
     font-weight: 700;
 }
 
+.right-section-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .heading-animation-section {
     display: flex;
     flex-direction: column;
@@ -333,7 +389,6 @@ section {
 .heading-animation-section .word {
     line-height: 0.8;
     position: relative;
-    text-transform: uppercase;
     clip-path: polygon(0 2%, 0 98%, 100% 98%, 100% 2%); /* Depends on the font */
 }
 .heading-animation-section .word-hidden {
@@ -371,32 +426,32 @@ section {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 3rem;
 }
 .content-section .word {
     display: inline-block;
     transform: translate(calc(100vw - 25px), 0);
 }
-.mwg_effect001 {
+.work-section {
     overflow: hidden;
     position: relative;
 }
-.mwg_effect001 .container {
+.work-section .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
     width: 100%;
-    font-size: clamp(12px, 1vw, 20px);
 }
-.mwg_effect001 .cards {
+.work-section .cards {
     display: flex;
     width: max-content;
-    white-space: nowrap;
     gap: 1vw;
     will-change: transform;
     padding: 0 120vw;
+    padding-top: 2rem;
 }
-.mwg_effect001 .card {
+.work-section .card {
     position: relative;
     width: 25vw;
     min-width: 280px;
@@ -405,15 +460,16 @@ section {
     object-fit: cover;
     text-align: center;
     background-color: var(--secondary-color);
+    box-shadow: 0px 0px 25px 0px white;
 }
-.mwg_effect001 .card img { 
+.work-section .card img { 
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: -1;
 }
 
-.mwg_effect001 .card-content {
+.work-section .card-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -422,58 +478,304 @@ section {
     background: var(--secondary-color);
     color: var(--white-color);
     padding: 1.4rem;
+    padding-bottom: 1.8rem;
 }
 
-.mwg_effect001 .card-content>div {
+.work-section .card-content>div {
     padding-left: 1rem;
     border-left: 1px solid;
 }
 
-.mwg_effect001 .card-content p {
+.work-section .card-content h4 {
     margin-bottom: 0;
 }
 
-.mwg_effect001 .from {
+.work-section .card-content .card-tag {
+    font-weight: 700;
+    font-family: 'Helvetica-std-bd';
+    font-size: 0.875rem;
+}
+
+.work-section .card-content .card-para {
+    font-size: 0.9rem;
+    font-family: 'Helvetica-std-roman';
+    max-width: 15rem;
+}
+
+.work-section .card-content p {
+    margin-bottom: 0;
+}
+
+.work-section .theme-button {
+    position: relative;
+    margin-top: -4rem;
+}
+
+.work-section .from {
     border: 0.2em solid currentColor;
     border-radius: 100%;
     padding: 0.28em 0.3em 0.12em;
 }
-.mwg_effect001 .card-content h2 {
-    font: 800 normal 4.5vw/0.8 'Inter', sans-serif;
+.work-section .card-content h2 {
     text-wrap: auto;
     padding: 0.2em 0 0.12em;
 }
+
+.work-section.is-services .card {
+    width: 22vw;
+    min-width: 200px;
+    border-radius: 1.5vw;
+}
+
+.work-section.is-services .card img {
+    min-height: 280px;
+}
+
+.services-bottom-nav {
+    position: absolute;
+    bottom: 30px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.services-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: end;
+    row-gap: 0.5rem;
+}
+
+.services-links li {
+    position: relative;
+}
+
+.services-links li:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: -12px;
+    color: rgba(255,255,255,0.4);
+}
+
+.services-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.services-links a:hover {
+    opacity: 0.6;
+}
+
+/* Plus icon */
+
+.plus-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.plus-icon:hover {
+    background: white;
+}
+
+.plus-icon:hover svg path {
+    stroke: black;
+}
+
+.content-section.is-sustainability .paragraph {
+    margin-top: 2.5rem;
+    margin-bottom: 4rem;
+    text-transform: initial;
+    max-width: 21ch;
+}
+
+.office-card {
+    padding-inline: 2.5rem;
+    font-size: 0.875rem;
+}
+
+.office-card .office-content {
+    border-left: 1px solid;
+    padding-left: 1rem;
+}
+
+.office-card .office-content h4 {
+    margin-bottom: 0;
+}
+
+.office-card .tag {
+    font-weight: 700;
+    font-family: 'Helvetica-std-bd';
+    font-size: 1rem;
+}
+
+.office-contact a img {
+    position: absolute;
+    left: -13px;
+    top: 0;
+    bottom: 0;
+}
+
+.office-contact a {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.office-contact li {
+    margin-bottom: 0.8rem;
+}
+
+.work-section.is-document .card {
+    width: 19vw;
+    min-width: 200px;
+    border-radius: 1.5vw;
+    box-shadow: unset;
+}
+
 
 /* ==============================
    RESPONSIVE
 ============================== */
 
-@media (max-width: 900px) {
+@media (max-width: 991px) {
+    .is-desktop {
+        display: none;
+    }
+    .is-mobile {
+        display: block;
+    }
+    .heading-style-h1 {
+        font-size: 6rem;
+    }
+    .hero-section .banner-heading {
+    font-size: 2rem;
+    }
     .section-title {
     font-size: 1.8rem;
     }
-    .mwg_effect001 .cards {
+    .hero-section .banner-content {
+    font-size: 1rem;
+    line-height: 1.2;
+    letter-spacing: 6px;
+    }
+    .arrow-icon svg, .right-section-arrow svg {
+        width: 40px;
+        height: 40px;
+    }
+    .heading-style-h2 {
+    font-size: 3rem;
+    line-height: 1;
+}
+.content-section .paragraph {
+    max-width: 19.5ch;
+    font-size: 2.2rem;
+    line-height: 1.1;
+}
+.theme-button {
+    padding: 1.1rem 2.5rem;
+    padding-right: 1.5rem;
+    gap: 1.5rem;
+}
+.theme-button svg {
+    width: 24px;
+}
+    .work-section .cards {
         padding: 0 140vw;
     }
-    .mwg_effect001 .card {
+    .work-section .card {
         border: 6px solid currentColor;
         border-radius: 23px;
     }
-    .mwg_effect001 .card-content h2 {
+    .work-section .card-content h2 {
         font-size: 54px;
     }
+    .heading-style-h4 {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+.services-links a {
+    font-size: 0.775rem;
+}
+.work-section.is-services .card {
+    width: 28vw;
+    min-width: 200px;
+}
+footer .right-section-arrow {
+    display: none;
+}
+footer .col-lg-8.border-end {
+    border: unset !important;
+}
+.work-section.is-document .card {
+    width: 26vw;
+    min-width: 200px;
+}
 }
 
 @media (max-width: 768px) {
     .content-section .word {
         transform: translate(calc(100vw - 15px), 0);
     }
+    .work-section.is-services .card {
+        width: 38vw;
+        min-width: 200px;
+    }
+    .work-section.is-document .card {
+        width: 36vw;
+        min-width: 200px;
+    }
 }
 
 @media (max-width: 576px) {
+  .navbar {
+    padding-block: 1.5rem !important;
+}
   section {
-    padding: 50px 0;
+    padding: 3.125rem 0;
   }
+  .heading-style-h1 {
+        font-size: 4rem;
+    }
+    .hero-section .banner-heading {
+        font-size: 1.8rem;
+    }
+    .work-section .theme-button {
+    margin: 0;
+    margin-bottom: 2rem;
+}
+    .work-section.is-services .card {
+        width: 80vw;
+        min-width: 200px;
+    }
+    .heading-style-h2 {
+        font-size: 2.6rem;
+        line-height: 1;
+    }
+    .content-section .paragraph {
+        max-width: 19.5ch;
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+    .office-card {
+    padding-inline: 1.5rem;
+}
+    .work-section.is-document .card {
+        width: 75vw;
+        min-width: 200px;
+    }
 }
 
 @media (max-width: 500px) {
