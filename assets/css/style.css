@@ -776,6 +776,9 @@ footer .col-lg-8.border-end {
         width: 75vw;
         min-width: 200px;
     }
+    .services-bottom-nav {
+    right: 20px;
+}
 }
 
 @media (max-width: 500px) {
