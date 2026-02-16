@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -24,689 +24,911 @@
       href="assets/images/footer-logo.webp"
       type="image/svg+xml"
     /> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
     <header>
-        <!-- Navbar -->
-        <nav class="navbar py-5">
+      <!-- Navbar -->
+      <nav class="navbar py-5">
         <div class="container align-items-start">
+          <!-- Logo Left -->
+          <a class="navbar-brand fw-bold" href="#">
+            <img src="assets/images/eh-logo-wht.svg" alt="Echo House White Logo" />
+          </a>
 
-            <a class="navbar-brand fw-bold" href="index.html">
-                <img src="assets/images/eh-logo-wht.svg" alt="Echo House White Logo">
-            </a>
-
-            <!-- Toggle Button (Mobile) -->
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+          <!-- Toggle Button (Mobile) -->
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
             <span class="navbar-toggler-icon"></span>
-            </button>
+          </button>
 
-            <!-- Desktop Menu (Right Side Vertical) -->
-            <div class="d-none d-lg-flex flex-column align-items-end gap-3">
-            <a href="work.html" class="nav-link">Work</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="sustainability.html" class="nav-link">Sustainability</a>
+          <!-- Desktop Menu (Right Side Vertical) -->
+          <div class="d-none d-lg-flex flex-column align-items-end gap-3">
+            <a href="#" class="nav-link">Work</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Services</a>
+            <a href="#" class="nav-link">Sustainability</a>
             <a href="#" class="nav-link">Contact</a>
-            </div>
-
+          </div>
         </div>
-        </nav>
+      </nav>
 
-        <!-- Offcanvas Menu (Mobile) -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
+      <!-- Offcanvas Menu (Mobile) -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
         <div class="offcanvas-header">
-            <h4 class="heading-style-h4 mb-0">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+          <h4 class="heading-style-h4 mb-0">Menu</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
 
         <div class="offcanvas-body">
-            <div class="d-flex flex-column">
-            <a href="work.html" class="nav-link">Work</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="sustainability.html" class="nav-link">Sustainability</a>
+          <div class="d-flex flex-column">
+            <a href="#" class="nav-link">Work</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Services</a>
+            <a href="#" class="nav-link">Sustainability</a>
             <a href="#" class="nav-link">Contact</a>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </header>
     <main>
-        <section class="hero-section d-flex align-items-center justify-content-center text-center">
-            <!-- Background Video -->
-            <video id="heroVideo" muted playsinline preload="auto" poster="assets/images/banner-poster.jpg">
-                <source src="assets/videos/banner-video-loop.mp4" type="video/mp4">
-            </video>
-            <!-- Overlay -->
-            <!-- <div class="hero-overlay"></div> -->
-            <!-- Content -->
-            <div class="container hero-content">
-                <div class="row align-items-center justify-content-center text-center">
-                    <h1 class="banner-heading">Sustainable Creative Production</h1>
-                    <p class="banner-content">Established 1994</p>
-                    <div class="arrow-icon">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60.96px" height="31.48px" viewBox="0 0 60.96 31.48" style="overflow:visible;enable-background:new 0 0 60.96 31.48;" xml:space="preserve"> <style type="text/css"> .st0{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} </style> <defs> </defs> <polyline class="st0" points="59.96,1 30.48,30.48 1,1 "/> </svg>
-                    </div>
-                </div>
+      <section class="hero-section d-flex align-items-center justify-content-center text-center">
+        <!-- Background Video -->
+        <video id="heroVideo" muted playsinline autoplay loop preload="auto" poster="assets/images/banner-poster.jpg">
+          <source src="assets/videos/banner-video-loop.mp4" type="video/mp4" />
+        </video>
+        <!-- Overlay -->
+        <!-- <div class="hero-overlay"></div> -->
+        <!-- Content -->
+        <div class="container hero-content">
+          <div class="row align-items-center justify-content-center text-center">
+            <h1 class="banner-heading">Sustainable Creative Production</h1>
+            <p class="banner-content">Established 1994</p>
+            <div class="arrow-icon">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="60.96px"
+                height="31.48px"
+                viewBox="0 0 60.96 31.48"
+                style="overflow: visible; enable-background: new 0 0 60.96 31.48"
+                xml:space="preserve"
+              >
+                <style type="text/css">
+                  .st0 {
+                    fill: none;
+                    stroke: #ffffff;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 10;
+                  }
+                </style>
+                <defs></defs>
+                <polyline class="st0" points="59.96,1 30.48,30.48 1,1 " />
+              </svg>
             </div>
-        </section>
-        <section class="heading-animation-section">			
-			<div class="container">
-                <div class="row position-relative">
-                    <h2 class="heading-style-h1 homepage-title t-h1 text-uppercase">
-                        <span class="word">
-                            <span class="word-hidden">The</span>
-                            <span class="word-visible">The</span>
-                        </span><br /> <span class="word">
-                            <span class="word-hidden">Echo</span>
-                            <span class="word-visible">Echo</span>
-                        </span><br /> <span class="word">
-                            <span class="word-hidden">House</span>
-                            <span class="word-visible">House</span>
-                        </span><br /> <span class="word">
-                            <span class="word-hidden">Story</span>
-                            <span class="word-visible">Story</span>
-                        </span>
-                    </h2>
-                    <div class="right-section-arrow">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                            height="60.96px" viewBox="0 0 31.48 60.96" style="overflow:visible;enable-background:new 0 0 31.48 60.96;"
-                            xml:space="preserve">
-                        <style type="text/css">
-                            .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                        </style>
-                        <defs>
-                        </defs>
-                        <polyline class="st0" points="1,1 30.48,30.48 1,59.96 "/>
-                        </svg>
-                    </div>
-                </div>
-			</div>
-		</section>
-        <section class="content-section">
-			<div class="pin-height">
-				<div class="container">
-                    <div class="row flex-column justify-content-center position-relative">
-                        <h2 class="heading-style-h2">A+ About</h2>
-                        <p class="paragraph">Established 1994. Concept To Activation. In-House. Driven By Detail. Creative-Led...</p>
-                        <a href="" class="theme-button">
-                            More
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                                height="16.74px" viewBox="0 0 31.48 16.74" style="overflow:visible;enable-background:new 0 0 31.48 16.74;"
-                                xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                            </style>
-                            <defs>
-                            </defs>
-                            <polyline class="st0" points="30.48,1 15.74,15.74 1,1 "/>
-                            </svg>
-                        </a>
-                        <div class="right-section-arrow">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                                height="60.96px" viewBox="0 0 31.48 60.96" style="overflow:visible;enable-background:new 0 0 31.48 60.96;"
-                                xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                            </style>
-                            <defs>
-                            </defs>
-                            <polyline class="st0" points="1,1 30.48,30.48 1,59.96 "/>
-                            </svg>
-                        </div>
-                    </div>
-				</div>
-			</div>
-		</section>
-        <section class="work-section">
-			<div class="container">
-                <h2 class="heading-style-h2">W+ Work</h2>
-				<div class="cards">
-					<div class="card">
-						<img src="assets/images/card-img-1.jpg" alt="">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Star Wars</h4>
-                                <p class="card-tag">Madame Tussauds</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<img src="assets/images/card-img-2.jpg" alt="">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Rolling Stones</h4>
-                                <p class="card-tag">Exhibitionism - Saatchi Gallery</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<img src="assets/images/card-img-3.jpg" alt="">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Kiels</h4>
-                                <p class="card-tag">Nationwide & Online</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<img src="assets/images/card-img-4.jpg" alt="">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Kiels</h4>
-                                <p class="card-tag">Nationwide & Online</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
-							</div>
-						</div>
-					</div>
-				</div>
-                <div class="row pt-5 cards-footer">
-                    <div class="col-md-7">
-                        <a href="" class="theme-button">
-                            More
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                                height="16.74px" viewBox="0 0 31.48 16.74" style="overflow:visible;enable-background:new 0 0 31.48 16.74;"
-                                xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                            </style>
-                            <defs>
-                            </defs>
-                            <polyline class="st0" points="30.48,1 15.74,15.74 1,1 "/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet
-                        dolore magna aliquam erat volutpat. Ut wisi enim ad minim
-                        veniam, quis nostrud exerci tation ullamcorper suscipit</p>
-                    </div>
-                </div>
-                <div class="right-section-arrow">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                        height="60.96px" viewBox="0 0 31.48 60.96" style="overflow:visible;enable-background:new 0 0 31.48 60.96;"
-                        xml:space="preserve">
+          </div>
+        </div>
+      </section>
+      <section class="heading-animation-section" data-animation="effect015">
+        <div class="container">
+          <div class="row position-relative">
+            <h2 class="heading-style-h1 homepage-title t-h1 text-uppercase">
+              <span class="word">
+                <span class="word-hidden">The</span>
+                <span class="word-visible">The</span> </span
+              ><br />
+              <span class="word">
+                <span class="word-hidden">Echo</span>
+                <span class="word-visible">Echo</span> </span
+              ><br />
+              <span class="word">
+                <span class="word-hidden">House</span>
+                <span class="word-visible">House</span> </span
+              ><br />
+              <span class="word">
+                <span class="word-hidden">Story</span>
+                <span class="word-visible">Story</span>
+              </span>
+            </h2>
+            <div class="right-section-arrow">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="31.48px"
+                height="60.96px"
+                viewBox="0 0 31.48 60.96"
+                style="overflow: visible; enable-background: new 0 0 31.48 60.96"
+                xml:space="preserve"
+              >
+                <style type="text/css">
+                  .st0 {
+                    fill: none;
+                    stroke: currentColor;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 10;
+                  }
+                </style>
+                <defs></defs>
+                <polyline class="st0" points="1,1 30.48,30.48 1,59.96 " />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="content-section" data-animation="effect005">
+        <div class="pin-height">
+          <div class="container">
+            <div class="row flex-column justify-content-center position-relative">
+              <h2 class="heading-style-h2" data-animation="hover-expand">About+</h2>
+              <p class="paragraph">Established 1994. Concept To Activation. In-House. Driven By Detail. Creative-Led...</p>
+              <div class="button-wrapper">
+                <a href="" class="theme-button">
+                  More
+                  <svg
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    width="31.48px"
+                    height="16.74px"
+                    viewBox="0 0 31.48 16.74"
+                    style="overflow: visible; enable-background: new 0 0 31.48 16.74"
+                    xml:space="preserve"
+                  >
                     <style type="text/css">
-                        .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                      .st0 {
+                        fill: none;
+                        stroke: currentColor;
+                        stroke-width: 2;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-miterlimit: 10;
+                      }
                     </style>
-                    <defs>
-                    </defs>
-                    <polyline class="st0" points="1,1 30.48,30.48 1,59.96 "/>
-                    </svg>
+                    <defs></defs>
+                    <polyline class="st0" points="30.48,1 15.74,15.74 1,1 " />
+                  </svg>
+                </a>
+              </div>
+              <div class="right-section-arrow">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="31.48px"
+                  height="60.96px"
+                  viewBox="0 0 31.48 60.96"
+                  style="overflow: visible; enable-background: new 0 0 31.48 60.96"
+                  xml:space="preserve"
+                >
+                  <style type="text/css">
+                    .st0 {
+                      fill: none;
+                      stroke: currentColor;
+                      stroke-width: 2;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <defs></defs>
+                  <polyline class="st0" points="1,1 30.48,30.48 1,59.96 " />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="work-section" data-animation="effect001">
+        <div class="container">
+          <h2 class="heading-style-h2">W+ Work</h2>
+          <div class="cards">
+            <div class="card">
+              <img src="assets/images/card-img-1.jpg" alt="" />
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Star Wars</h4>
+                  <p class="card-tag">Madame Tussauds</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
                 </div>
-			</div>
-		</section>
-        <section class="heading-animation-section">			
-			<div class="container">
-                <div class="row position-relative">
-                    <h2 class="heading-style-h1 homepage-title t-h1 mb-5">
-                        <span class="word">
-                            <span class="word-hidden">“The Echo</span>
-                            <span class="word-visible">“The Echo</span>
-                        </span><br /> <span class="word">
-                            <span class="word-hidden">Team are</span>
-                            <span class="word-visible">Team are</span>
-                        </span><br /> <span class="word">
-                            <span class="word-hidden">artists”</span>
-                            <span class="word-visible">artists”</span>
-                        </span>
-                    </h2>
-                    <a href="" class="theme-button is-small">
-                        Testimonials
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                            height="16.74px" viewBox="0 0 31.48 16.74" style="overflow:visible;enable-background:new 0 0 31.48 16.74;"
-                                xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                            </style>
-                            <defs>
-                            </defs>
-                            <polyline class="st0" points="30.48,1 15.74,15.74 1,1 "/>
-                        </svg>
-                    </a>
-                    <div class="right-section-arrow">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                            height="60.96px" viewBox="0 0 31.48 60.96" style="overflow:visible;enable-background:new 0 0 31.48 60.96;"
-                            xml:space="preserve">
-                        <style type="text/css">
-                            .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                        </style>
-                        <defs>
-                        </defs>
-                        <polyline class="st0" points="1,1 30.48,30.48 1,59.96 "/>
-                        </svg>
-                    </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="assets/images/card-img-2.jpg" alt="" />
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Rolling Stones</h4>
+                  <p class="card-tag">Exhibitionism - Saatchi Gallery</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
                 </div>
-			</div>
-		</section>
-        <section class="work-section is-services">
-			<div class="container">
-                <h2 class="heading-style-h2">S+ Services</h2>
-				<div class="cards">
-					<div class="card">
-						<img src="assets/images/card-img-1.jpg" alt="">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Exhibitions</h4>
-                                <p class="card-tag">Madame Tussauds</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<img src="assets/images/card-img-2.jpg" alt="">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Window fitting</h4>
-                                <p class="card-tag">Madame Tussauds</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<img src="assets/images/card-img-3.jpg" alt="">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">counter collateral</h4>
-                                <p class="card-tag">Pat McGrath</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<img src="assets/images/card-img-4.jpg" alt="">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Pop ups</h4>
-                                <p class="card-tag">Charlotte Tilbury</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<img src="assets/images/card-img-1.jpg" alt="">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Installations</h4>
-                                <p class="card-tag">Madame Tussauds</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
-							</div>
-						</div>
-					</div>
-				</div>
-                <div class="row pt-3 cards-footer">
-                    <div class="col-md-7">
-                        <a href="" class="theme-button">
-                            More
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                                height="16.74px" viewBox="0 0 31.48 16.74" style="overflow:visible;enable-background:new 0 0 31.48 16.74;"
-                                xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                            </style>
-                            <defs>
-                            </defs>
-                            <polyline class="st0" points="30.48,1 15.74,15.74 1,1 "/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="assets/images/card-img-3.jpg" alt="" />
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Kiels</h4>
+                  <p class="card-tag">Nationwide & Online</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
                 </div>
-                <div class="right-section-arrow">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                        height="60.96px" viewBox="0 0 31.48 60.96" style="overflow:visible;enable-background:new 0 0 31.48 60.96;"
-                        xml:space="preserve">
+              </div>
+            </div>
+            <div class="card">
+              <img src="assets/images/card-img-4.jpg" alt="" />
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Kiels</h4>
+                  <p class="card-tag">Nationwide & Online</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-5 cards-footer">
+            <div class="col-md-7">
+              <a href="" class="theme-button">
+                More
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="31.48px"
+                  height="16.74px"
+                  viewBox="0 0 31.48 16.74"
+                  style="overflow: visible; enable-background: new 0 0 31.48 16.74"
+                  xml:space="preserve"
+                >
+                  <style type="text/css">
+                    .st0 {
+                      fill: none;
+                      stroke: currentColor;
+                      stroke-width: 2;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <defs></defs>
+                  <polyline class="st0" points="30.48,1 15.74,15.74 1,1 " />
+                </svg>
+              </a>
+            </div>
+            <div class="col-md-5">
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+            </div>
+          </div>
+          <div class="right-section-arrow">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="31.48px"
+              height="60.96px"
+              viewBox="0 0 31.48 60.96"
+              style="overflow: visible; enable-background: new 0 0 31.48 60.96"
+              xml:space="preserve"
+            >
+              <style type="text/css">
+                .st0 {
+                  fill: none;
+                  stroke: currentColor;
+                  stroke-width: 2;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-miterlimit: 10;
+                }
+              </style>
+              <defs></defs>
+              <polyline class="st0" points="1,1 30.48,30.48 1,59.96 " />
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section class="heading-animation-section" data-animation="effect015">
+        <div class="container">
+          <div class="row position-relative">
+            <h2 class="heading-style-h1 homepage-title t-h1 mb-5">
+              <span class="word">
+                <span class="word-hidden">“The Echo</span>
+                <span class="word-visible">“The Echo</span> </span
+              ><br />
+              <span class="word">
+                <span class="word-hidden">Team are</span>
+                <span class="word-visible">Team are</span> </span
+              ><br />
+              <span class="word">
+                <span class="word-hidden">artists”</span>
+                <span class="word-visible">artists”</span>
+              </span>
+            </h2>
+            <a href="" class="theme-button is-small">
+              Testimonials
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="31.48px"
+                height="16.74px"
+                viewBox="0 0 31.48 16.74"
+                style="overflow: visible; enable-background: new 0 0 31.48 16.74"
+                xml:space="preserve"
+              >
+                <style type="text/css">
+                  .st0 {
+                    fill: none;
+                    stroke: currentColor;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 10;
+                  }
+                </style>
+                <defs></defs>
+                <polyline class="st0" points="30.48,1 15.74,15.74 1,1 " />
+              </svg>
+            </a>
+            <div class="right-section-arrow">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="31.48px"
+                height="60.96px"
+                viewBox="0 0 31.48 60.96"
+                style="overflow: visible; enable-background: new 0 0 31.48 60.96"
+                xml:space="preserve"
+              >
+                <style type="text/css">
+                  .st0 {
+                    fill: none;
+                    stroke: currentColor;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 10;
+                  }
+                </style>
+                <defs></defs>
+                <polyline class="st0" points="1,1 30.48,30.48 1,59.96 " />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="work-section is-services" data-animation="effect001">
+        <div class="container">
+          <h2 class="heading-style-h2">S+ Services</h2>
+          <div class="cards">
+            <div class="card">
+              <img src="assets/images/card-img-1.jpg" alt="" />
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Exhibitions</h4>
+                  <p class="card-tag">Madame Tussauds</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="assets/images/card-img-2.jpg" alt="" />
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Window fitting</h4>
+                  <p class="card-tag">Madame Tussauds</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="assets/images/card-img-3.jpg" alt="" />
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">counter collateral</h4>
+                  <p class="card-tag">Pat McGrath</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="assets/images/card-img-4.jpg" alt="" />
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Pop ups</h4>
+                  <p class="card-tag">Charlotte Tilbury</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img src="assets/images/card-img-1.jpg" alt="" />
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Installations</h4>
+                  <p class="card-tag">Madame Tussauds</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ips...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-3 cards-footer">
+            <div class="col-md-7">
+              <a href="" class="theme-button">
+                More
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="31.48px"
+                  height="16.74px"
+                  viewBox="0 0 31.48 16.74"
+                  style="overflow: visible; enable-background: new 0 0 31.48 16.74"
+                  xml:space="preserve"
+                >
+                  <style type="text/css">
+                    .st0 {
+                      fill: none;
+                      stroke: currentColor;
+                      stroke-width: 2;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <defs></defs>
+                  <polyline class="st0" points="30.48,1 15.74,15.74 1,1 " />
+                </svg>
+              </a>
+            </div>
+            <div class="col-md-5"></div>
+          </div>
+          <div class="right-section-arrow">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="31.48px"
+              height="60.96px"
+              viewBox="0 0 31.48 60.96"
+              style="overflow: visible; enable-background: new 0 0 31.48 60.96"
+              xml:space="preserve"
+            >
+              <style type="text/css">
+                .st0 {
+                  fill: none;
+                  stroke: currentColor;
+                  stroke-width: 2;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-miterlimit: 10;
+                }
+              </style>
+              <defs></defs>
+              <polyline class="st0" points="1,1 30.48,30.48 1,59.96 " />
+            </svg>
+          </div>
+          <div class="services-bottom-nav">
+            <ul class="services-links">
+              <li><a href="#">EXHIBITIONS</a></li>
+              <li><a href="#">WINDOW FITTING</a></li>
+              <li><a href="#">COUNTER COLLATERAL</a></li>
+              <li><a href="#">POP UPS</a></li>
+              <li><a href="#">INSTALLATIONS</a></li>
+            </ul>
+            <div class="plus-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5V19M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="content-section" data-animation="effect005">
+        <div class="pin-height">
+          <div class="container">
+            <div class="row flex-column justify-content-center position-relative">
+              <h2 class="heading-style-h2">S+ Sustainability</h2>
+              <p class="paragraph">Choose Life. Internationally Recognised Accreditations. Top 1%. World Leading...</p>
+              <div class="button-wrapper">
+                <a href="" class="theme-button">
+                  More
+                  <svg
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    width="31.48px"
+                    height="16.74px"
+                    viewBox="0 0 31.48 16.74"
+                    style="overflow: visible; enable-background: new 0 0 31.48 16.74"
+                    xml:space="preserve"
+                  >
                     <style type="text/css">
-                        .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                      .st0 {
+                        fill: none;
+                        stroke: currentColor;
+                        stroke-width: 2;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-miterlimit: 10;
+                      }
                     </style>
-                    <defs>
-                    </defs>
-                    <polyline class="st0" points="1,1 30.48,30.48 1,59.96 "/>
-                    </svg>
-                </div>
-                <div class="services-bottom-nav">
-                    <ul class="services-links">
-                        <li><a href="#">EXHIBITIONS</a></li>
-                        <li><a href="#">WINDOW FITTING</a></li>
-                        <li><a href="#">COUNTER COLLATERAL</a></li>
-                        <li><a href="#">POP UPS</a></li>
-                        <li><a href="#">INSTALLATIONS</a></li>
-                    </ul>
-                    <div class="plus-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 5V19M5 12H19"
-                                stroke="white"
-                                stroke-width="2"
-                                stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                </div>
-			</div>
-		</section>
-        <section class="content-section">
-			<div class="pin-height">
-				<div class="container">
-                    <div class="row flex-column justify-content-center position-relative">
-                        <h2 class="heading-style-h2">S+ Sustainability</h2>
-                        <p class="paragraph">Choose Life. Internationally Recognised Accreditations. Top 1%. World Leading...</p>
-                        <a href="" class="theme-button">
-                            More
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                                height="16.74px" viewBox="0 0 31.48 16.74" style="overflow:visible;enable-background:new 0 0 31.48 16.74;"
-                                xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                            </style>
-                            <defs>
-                            </defs>
-                            <polyline class="st0" points="30.48,1 15.74,15.74 1,1 "/>
-                            </svg>
-                        </a>
-                        <div class="right-section-arrow">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                                height="60.96px" viewBox="0 0 31.48 60.96" style="overflow:visible;enable-background:new 0 0 31.48 60.96;"
-                                xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                            </style>
-                            <defs>
-                            </defs>
-                            <polyline class="st0" points="1,1 30.48,30.48 1,59.96 "/>
-                            </svg>
-                        </div>
-                    </div>
-				</div>
-			</div>
-		</section>
-        <section class="content-section is-sustainability">
-			<div class="pin-height">
-				<div class="container">
-                    <div class="row flex-column justify-content-center position-relative">
-                        <h2 class="heading-style-h2">S+ Sustainability</h2>
-                        <p class="paragraph">Echo hold the EcoVadis Platinum Medal Award rating us in the top <span class="primary-color">1%</span> of all companies accredited worldwide</p>
-                        <a href="" class="theme-button">
-                            More
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                                height="16.74px" viewBox="0 0 31.48 16.74" style="overflow:visible;enable-background:new 0 0 31.48 16.74;"
-                                xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                            </style>
-                            <defs>
-                            </defs>
-                            <polyline class="st0" points="30.48,1 15.74,15.74 1,1 "/>
-                            </svg>
-                        </a>
-                    </div>
-				</div>
-			</div>
-		</section>
+                    <defs></defs>
+                    <polyline class="st0" points="30.48,1 15.74,15.74 1,1 " />
+                  </svg>
+                </a>
+              </div>
+              <div class="right-section-arrow">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="31.48px"
+                  height="60.96px"
+                  viewBox="0 0 31.48 60.96"
+                  style="overflow: visible; enable-background: new 0 0 31.48 60.96"
+                  xml:space="preserve"
+                >
+                  <style type="text/css">
+                    .st0 {
+                      fill: none;
+                      stroke: currentColor;
+                      stroke-width: 2;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <defs></defs>
+                  <polyline class="st0" points="1,1 30.48,30.48 1,59.96 " />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="content-section is-sustainability" data-animation="effect005">
+        <div class="pin-height">
+          <div class="container">
+            <div class="row flex-column justify-content-center position-relative">
+              <h2 class="heading-style-h2">S+ Sustainability</h2>
+              <p class="paragraph">Echo hold the EcoVadis Platinum Medal Award rating us in the top <span class="primary-color">1%</span> of all companies accredited worldwide</p>
+              <div class="button-wrapper">
+                <a href="" class="theme-button">
+                  More
+                  <svg
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    width="31.48px"
+                    height="16.74px"
+                    viewBox="0 0 31.48 16.74"
+                    style="overflow: visible; enable-background: new 0 0 31.48 16.74"
+                    xml:space="preserve"
+                  >
+                    <style type="text/css">
+                      .st0 {
+                        fill: none;
+                        stroke: currentColor;
+                        stroke-width: 2;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-miterlimit: 10;
+                      }
+                    </style>
+                    <defs></defs>
+                    <polyline class="st0" points="30.48,1 15.74,15.74 1,1 " />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- Footer Section -->
-     <footer>
-        <div class="container-fluid">
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <h2 class="heading-style-h2 mb-4">C+ Contact</h2>
-                    </div>
-                    <div class="col-lg-4 mt-5 mt-lg-0">
-                        <div class="ps-lg-5 is-desktop">
-                            <h2 class="heading-style-h2 mb-4">D+</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center position-relative">
-                    <div class="col-lg-8 border-end pe-lg-5">
-                        <div class="row g-4">
-                            <div class="office-card col-md-4">
-                                <div>
-                                    <div class="ratio ratio-1x1 mb-3">
-                                        <img src="assets/images/location-img.jpg" class="img-fluid rounded-4" alt="">
-                                    </div>
-                                    <div class="office-content">
-                                        <h4 class="heading-style-h4">Head office</h4>
-                                        <p class="tag mb-0">Address</p>
-                                        <p class="mb-3">
-                                            Red Lion Business Park,<br>
-                                            Surbiton,<br>
-                                            KT6 7RD
-                                        </p>
-                                    </div>
-                                    <div class="office-contact">
-                                        <p class="tag mb-1">Main contact:</p>
-                                        <ul class="list-unstyled mb-3">
-                                            <li>
-                                                <a href="tel:+4402082543434">
-                                                <img src="/assets/images/telephone.png" alt="">
-                                                +44 (0)20 8254 3434
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="mailto:info@echo-house.co.uk">
-                                                    <img src="/assets/images/email.png" alt="">
-                                                    info@echo-house.co.uk
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="office-contact">
-                                        <p class="tag mb-1">Accounts:</p>
-                                        <ul class="list-unstyled mb-3">
-                                            <li>
-                                                <a href="tel:+4402082543434">
-                                                <img src="/assets/images/telephone.png" alt="">
-                                                +44 (0)20 8254 3434
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="mailto:account@echo-house.co.uk">
-                                                    <img src="/assets/images/email.png" alt="">
-                                                    account@echo-house.co.uk
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="office-contact">
-                                        <p class="tag mb-1">Human Resource:</p>
-                                        <ul class="list-unstyled mb-3">
-                                            <li>
-                                                <a href="tel:+4402082543434">
-                                                <img src="/assets/images/telephone.png" alt="">
-                                                +44 (0)20 8254 3434
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="mailto:hr@echo-house.co.uk">
-                                                    <img src="/assets/images/email.png" alt="">
-                                                    hr@echo-house.co.uk
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="office-card col-md-4">
-                                <div>
-                                    <div class="ratio ratio-1x1 mb-3">
-                                        <img src="assets/images/location-img.jpg" class="img-fluid rounded-4" alt="">
-                                    </div>
-                                    <div class="office-content">
-                                        <h4 class="heading-style-h4">Storage depot</h4>
-                                        <p class="tag mb-0">Address</p>
-                                        <p class="mb-3">
-                                            Red Lion Business Park,<br>
-                                            Surbiton,<br>
-                                            KT6 7RD
-                                        </p>
-                                    </div>
-                                    <div class="office-contact">
-                                        <p class="tag mb-1">Main contact:</p>
-                                        <ul class="list-unstyled mb-3">
-                                            <li>
-                                                <a href="tel:+4402082543422">
-                                                <img src="/assets/images/telephone.png" alt="">
-                                                +44 (0)20 8254 3422
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="mailto:storage@echo-house.co.uk">
-                                                    <img src="/assets/images/email.png" alt="">
-                                                    storage@echo-house.co.uk
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="office-card col-md-4">
-                                <div>
-                                    <div class="ratio ratio-1x1 mb-3">
-                                        <img src="assets/images/location-img.jpg" class="img-fluid rounded-4" alt="">
-                                    </div>
-                                    <div class="office-content">
-                                        <h4 class="heading-style-h4">Holland</h4>
-                                        <p class="tag mb-0">Address</p>
-                                        <p class="mb-3">
-                                            Red Lion Business Park,<br>
-                                            Surbiton,<br>
-                                            KT6 7RD
-                                        </p>
-                                    </div>
-                                    <div class="office-contact">
-                                        <p class="tag mb-1">Main contact:</p>
-                                        <ul class="list-unstyled mb-3">
-                                            <li>
-                                                <a href="tel:+4402082543434">
-                                                <img src="/assets/images/telephone.png" alt="">
-                                                +44 (0)20 8254 3434
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="mailto:rotterdam@echo-house.co.uk">
-                                                    <img src="/assets/images/email.png" alt="">
-                                                    rotterdam@echo-house.co.uk
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mt-5 mt-lg-0">
-                        <div class="ps-lg-5 is-mobile">
-                            <h2 class="heading-style-h2 mb-5">D+</h2>
-                        </div>
-                        <div class="ps-lg-5">
-                        <ul class="list-unstyled">
-                            <li class="mb-3"><a href="#" class="heading-style-h3">Work</a></li>
-                            <li class="mb-3"><a href="#" class="heading-style-h3">About</a></li>
-                            <li class="mb-3"><a href="#" class="heading-style-h3">Services</a></li>
-                            <li class="mb-3"><a href="#" class="heading-style-h3">Sustainability</a></li>
-                        </ul>
-                        </div>
-                    </div>
-                    <div class="right-section-arrow">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.48px"
-                            height="60.96px" viewBox="0 0 31.48 60.96" style="overflow:visible;enable-background:new 0 0 31.48 60.96;"
-                            xml:space="preserve">
-                        <style type="text/css">
-                            .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-                        </style>
-                        <defs>
-                        </defs>
-                        <polyline class="st0" points="1,1 30.48,30.48 1,59.96 "/>
-                        </svg>
-                    </div>
-                </div>
+    <footer>
+      <div class="container-fluid">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-lg-8">
+              <h2 class="heading-style-h2 mb-4">C+ Contact</h2>
             </div>
+            <div class="col-lg-4 mt-5 mt-lg-0">
+              <div class="ps-lg-5 is-desktop">
+                <h2 class="heading-style-h2 mb-4">D+</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center position-relative">
+            <div class="col-lg-8 border-end pe-lg-5">
+              <div class="row g-4">
+                <div class="office-card col-md-4">
+                  <div>
+                    <div class="ratio ratio-1x1 mb-3">
+                      <img src="assets/images/location-img.jpg" class="img-fluid rounded-4" alt="" />
+                    </div>
+                    <div class="office-content">
+                      <h4 class="heading-style-h4">Head office</h4>
+                      <p class="tag mb-0">Address</p>
+                      <p class="mb-3">
+                        Red Lion Business Park,<br />
+                        Surbiton,<br />
+                        KT6 7RD
+                      </p>
+                    </div>
+                    <div class="office-contact">
+                      <p class="tag mb-1">Main contact:</p>
+                      <ul class="list-unstyled mb-3">
+                        <li>
+                          <a href="tel:+4402082543434">
+                            <img src="/assets/images/telephone.png" alt="" />
+                            +44 (0)20 8254 3434
+                          </a>
+                        </li>
+                        <li>
+                          <a href="mailto:info@echo-house.co.uk">
+                            <img src="/assets/images/email.png" alt="" />
+                            info@echo-house.co.uk
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="office-contact">
+                      <p class="tag mb-1">Accounts:</p>
+                      <ul class="list-unstyled mb-3">
+                        <li>
+                          <a href="tel:+4402082543434">
+                            <img src="/assets/images/telephone.png" alt="" />
+                            +44 (0)20 8254 3434
+                          </a>
+                        </li>
+                        <li>
+                          <a href="mailto:account@echo-house.co.uk">
+                            <img src="/assets/images/email.png" alt="" />
+                            account@echo-house.co.uk
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="office-contact">
+                      <p class="tag mb-1">Human Resource:</p>
+                      <ul class="list-unstyled mb-3">
+                        <li>
+                          <a href="tel:+4402082543434">
+                            <img src="/assets/images/telephone.png" alt="" />
+                            +44 (0)20 8254 3434
+                          </a>
+                        </li>
+                        <li>
+                          <a href="mailto:hr@echo-house.co.uk">
+                            <img src="/assets/images/email.png" alt="" />
+                            hr@echo-house.co.uk
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="office-card col-md-4">
+                  <div>
+                    <div class="ratio ratio-1x1 mb-3">
+                      <img src="assets/images/location-img.jpg" class="img-fluid rounded-4" alt="" />
+                    </div>
+                    <div class="office-content">
+                      <h4 class="heading-style-h4">Storage depot</h4>
+                      <p class="tag mb-0">Address</p>
+                      <p class="mb-3">
+                        Red Lion Business Park,<br />
+                        Surbiton,<br />
+                        KT6 7RD
+                      </p>
+                    </div>
+                    <div class="office-contact">
+                      <p class="tag mb-1">Main contact:</p>
+                      <ul class="list-unstyled mb-3">
+                        <li>
+                          <a href="tel:+4402082543422">
+                            <img src="/assets/images/telephone.png" alt="" />
+                            +44 (0)20 8254 3422
+                          </a>
+                        </li>
+                        <li>
+                          <a href="mailto:storage@echo-house.co.uk">
+                            <img src="/assets/images/email.png" alt="" />
+                            storage@echo-house.co.uk
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="office-card col-md-4">
+                  <div>
+                    <div class="ratio ratio-1x1 mb-3">
+                      <img src="assets/images/location-img.jpg" class="img-fluid rounded-4" alt="" />
+                    </div>
+                    <div class="office-content">
+                      <h4 class="heading-style-h4">Holland</h4>
+                      <p class="tag mb-0">Address</p>
+                      <p class="mb-3">
+                        Red Lion Business Park,<br />
+                        Surbiton,<br />
+                        KT6 7RD
+                      </p>
+                    </div>
+                    <div class="office-contact">
+                      <p class="tag mb-1">Main contact:</p>
+                      <ul class="list-unstyled mb-3">
+                        <li>
+                          <a href="tel:+4402082543434">
+                            <img src="/assets/images/telephone.png" alt="" />
+                            +44 (0)20 8254 3434
+                          </a>
+                        </li>
+                        <li>
+                          <a href="mailto:rotterdam@echo-house.co.uk">
+                            <img src="/assets/images/email.png" alt="" />
+                            rotterdam@echo-house.co.uk
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mt-5 mt-lg-0">
+              <div class="ps-lg-5 is-mobile">
+                <h2 class="heading-style-h2 mb-5">D+</h2>
+              </div>
+              <div class="ps-lg-5">
+                <ul class="list-unstyled">
+                  <li class="mb-3"><a href="#" class="heading-style-h3">Work</a></li>
+                  <li class="mb-3"><a href="#" class="heading-style-h3">About</a></li>
+                  <li class="mb-3"><a href="#" class="heading-style-h3">Services</a></li>
+                  <li class="mb-3"><a href="#" class="heading-style-h3">Sustainability</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="right-section-arrow">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="31.48px"
+                height="60.96px"
+                viewBox="0 0 31.48 60.96"
+                style="overflow: visible; enable-background: new 0 0 31.48 60.96"
+                xml:space="preserve"
+              >
+                <style type="text/css">
+                  .st0 {
+                    fill: none;
+                    stroke: currentColor;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-miterlimit: 10;
+                  }
+                </style>
+                <defs></defs>
+                <polyline class="st0" points="1,1 30.48,30.48 1,59.96 " />
+              </svg>
+            </div>
+          </div>
         </div>
-        <div class="work-section is-document">
-			<div class="container">
-                <h2 class="heading-style-h2">D+ Documents</h2>
-				<div class="cards">
-					<div class="card">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Carbon Quota Certificate</h4>
-                                <p class="card-tag">Document summary</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Customer Terms and Conditions</h4>
-                                <p class="card-tag">Document summary</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Child Labour Policy</h4>
-                                <p class="card-tag">Document summary</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Quality Policy</h4>
-                                <p class="card-tag">Document summary</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Carbon Quota Certificate</h4>
-                                <p class="card-tag">Document summary</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Customer Terms and Conditions</h4>
-                                <p class="card-tag">Document summary</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Child Labour Policy</h4>
-                                <p class="card-tag">Document summary</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
-							</div>
-						</div>
-					</div>
-                    <div class="card">
-						<div class="card-content">
-							<div>
-                                <h4 class="heading-style-h4">Quality Policy</h4>
-                                <p class="card-tag">Document summary</p>
-                                <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+      </div>
+      <div class="work-section is-document">
+        <div class="container">
+          <h2 class="heading-style-h2">D+ Documents</h2>
+          <div class="cards">
+            <div class="card">
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Carbon Quota Certificate</h4>
+                  <p class="card-tag">Document summary</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Customer Terms and Conditions</h4>
+                  <p class="card-tag">Document summary</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Child Labour Policy</h4>
+                  <p class="card-tag">Document summary</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Quality Policy</h4>
+                  <p class="card-tag">Document summary</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Carbon Quota Certificate</h4>
+                  <p class="card-tag">Document summary</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Customer Terms and Conditions</h4>
+                  <p class="card-tag">Document summary</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Child Labour Policy</h4>
+                  <p class="card-tag">Document summary</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div>
+                  <h4 class="heading-style-h4">Quality Policy</h4>
+                  <p class="card-tag">Document summary</p>
+                  <p class="card-para">Lorem ipsum dolor sit amet, consectetuey nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
