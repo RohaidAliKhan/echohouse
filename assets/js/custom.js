@@ -58,19 +58,19 @@ function effect005() {
       },
     });
 
-    tl.from(section.querySelector("h2"), {
+    gsap.set([section.querySelector("h2"), section.querySelector(".button-wrapper")], {
       x: "100vw",
-      ease: "power4.inOut",
-    })
-      .to(words, {
+    });
+
+    tl.to(
+      [section.querySelector("h2"), ...words, section.querySelector(".button-wrapper")],
+      {
         x: 0, // Animate the 'x' property to 0
         stagger: 0.02, // Stagger the animation of each element by 0.02 seconds
         ease: "power4.inOut", // Use a power4 easing function for smooth start and end
-      })
-      .from(section.querySelector(".button-wrapper"), {
-        x: "100vw",
-        ease: "power4.inOut",
-      });
+      },
+      "-=0.05",
+    );
   });
 }
 
@@ -133,13 +133,55 @@ function effect001() {
 
 function hoverExpand() {
   const headings = document.querySelectorAll("[data-animation='hover-expand']");
+
+  headings.forEach((heading) => {
+    const split = SplitText.create(heading, {
+      type: "chars", // only split into words
+      charsClass: "char", // adds class="char" to each char
+      tag: "span", // use <span> instead of default <div>
+    });
+    gsap.set(split.chars, {
+      display: "inline-block",
+    });
+
+    const chars = split.chars;
+    const first = chars[0];
+    const last = chars[chars.length - 1];
+    const middle = chars.slice(1, -1);
+
+    gsap.set(middle, {
+      autoAlpha: 0,
+      width: 0,
+    });
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(middle, {
+      autoAlpha: 1,
+      width: "auto",
+      duration: 0.3,
+      stagger: 0.03,
+      ease: "power2.out",
+    }).to(
+      last,
+      {
+        autoAlpha: 0,
+        duration: 0.3,
+        ease: "power2.out",
+      },
+      "-=0.3",
+    );
+
+    heading.addEventListener("mouseenter", () => tl.play());
+    heading.addEventListener("mouseleave", () => tl.reverse());
+  });
 }
 
 // Helper functions
 function wrapWordsInSpan(element) {
-  const text = element.textContent;
-  element.innerHTML = text
-    .split(" ")
-    .map((word) => `<span class="word">${word}</span>`)
-    .join(" ");
+  return SplitText.create(element, {
+    type: "words", // only split into words
+    wordsClass: "word", // adds class="word" to each word
+    tag: "span", // use <span> instead of default <div>
+  });
 }
