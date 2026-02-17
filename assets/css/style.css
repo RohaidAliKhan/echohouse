@@ -817,36 +817,21 @@ section {
   border-radius: 0.6vw;
 }
 
-.mwg_effect031 {
+.innerpages-banner {
   padding: 100vh 0;
   position: relative;
   overflow: hidden;
 }
-.mwg_effect031 .scroll {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.mwg_effect031 .slide {
+.innerpages-banner .slide {
   height: 100vh;
   box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.14);
 }
-.mwg_effect031 .content-wrapper {
+.innerpages-banner .content-wrapper {
   width: 100%;
   height: 100%;
-
   perspective: 250vw;
 }
-.mwg_effect031 .content {
-  position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
-  transform-origin: 50% 10%;
-  overflow: clip;
-  border-radius: 1.5rem;
-}
-.mwg_effect031 .content video {
+.innerpages-banner .content video {
   width: 100%;
 }
 .content-section.is-about .paragraph {
@@ -1178,24 +1163,24 @@ section {
     height: auto;
     aspect-ratio: 1.8;
   }
-  .mwg_effect031 .content {
+  .innerpages-banner .content {
     padding: 15px;
     justify-content: initial;
   }
   .num {
     display: none;
   }
-  .mwg_effect031 .bottom {
+  .innerpages-banner .bottom {
     margin: 15px 0 0;
     flex-direction: column;
     gap: 15px;
   }
-  .mwg_effect031 .text {
+  .innerpages-banner .text {
     order: 2;
     font-size: 22px;
     width: 100%;
   }
-  .mwg_effect031 .bottom img {
+  .innerpages-banner .bottom img {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
