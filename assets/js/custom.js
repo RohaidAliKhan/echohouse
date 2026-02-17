@@ -132,7 +132,7 @@ function effect001() {
 }
 
 function hoverExpand() {
-  const headings = document.querySelectorAll("[data-animation='hover-expand']");
+  const headings = document.querySelectorAll("[data-animation='hover-expand'] h2");
 
   headings.forEach((heading) => {
     const split = SplitText.create(heading, {

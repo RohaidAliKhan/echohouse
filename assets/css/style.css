@@ -98,6 +98,10 @@ img {
   display: none;
 }
 
+[data-animation="hover-expand"] h2 {
+    display: inline-block;
+}
+
 /* ==============================
    TYPOGRAPHY
 ============================== */
@@ -1264,9 +1268,11 @@ section {
     width: 75vw;
     min-width: 200px;
   }
-  .services-bottom-nav {
-    right: 20px;
-  }
+    .services-bottom-nav {
+        right: 20px;
+        bottom: 0;
+        position: relative;
+    }
 }
 
 @media (max-width: 500px) {
