@@ -272,20 +272,21 @@ function initThemeButtonHover() {
         const length = path.getTotalLength();
 
         gsap.set(path, {
-            strokeDasharray: length + 2,
-            strokeDashoffset: length + 2
+            strokeDasharray: length,
+            strokeDashoffset: -length,
+            opacity: 0,
+            visibility: "visible"
         });
 
         const hoverTL = gsap.timeline({ paused: true });
 
-        // Line draw animation
         hoverTL.to(path, {
             strokeDashoffset: 0,
+            opacity: 1,
             duration: 0.5,
             ease: "power2.out"
         }, 0);
 
-        // ✅ Zoom effect ONLY on icon
         hoverTL.to(svg, {
             scale: 1.2,
             duration: 0.25,
@@ -304,12 +305,12 @@ function initThemeButtonHover() {
 
         button.addEventListener("mouseleave", () => {
             gsap.to(path, {
-                strokeDashoffset: length + 2,
+                strokeDashoffset: -length,
+                opacity: 0,
                 duration: 0.4,
                 ease: "power2.in"
             });
         });
 
     });
-
 }
