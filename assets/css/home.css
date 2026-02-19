@@ -103,8 +103,13 @@ img {
 }
 
 .horizontal-scroll {
-    display: flex;
+  display: flex;
+  /* width: max-content; */
 }
+
+/* .horizontal-scroll section {
+  min-width: 100vw;
+} */
 
 /* ==============================
    TYPOGRAPHY
@@ -463,6 +468,7 @@ section {
 
 .content-section .pin-height {
   height: 500vh;
+  width: 100%;
 }
 
 .content-section .row {
