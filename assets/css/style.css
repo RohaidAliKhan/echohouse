@@ -718,10 +718,10 @@ section {
 .is-work .row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* 2 items par row */
   width: max-content;
   will-change: transform;
-  /* This element will undergo many transformations */
+  position: relative;
+  z-index: -1;
 }
 
 .is-work .content {

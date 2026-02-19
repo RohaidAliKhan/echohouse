@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     effect005();
     effect020();
     effect004();
+    effect026();
+    effect038();
+    effect007();
 });
 
 function smoothScroll() {
@@ -426,4 +429,177 @@ function wrapTestimonialWordsInSpan(element) {
         .split(' ')
         .map(word => `<span class="word">${word}</span>`)
         .join(' ');
+}
+
+function effect026() {
+    // Select all sections with data-animation="effect026"
+    document.querySelectorAll("[data-animation='effect026']").forEach(section => {
+        const container = section.querySelector('.row');
+        if (!container) return;
+
+        // Get container half dimensions
+        const halfX = container.clientWidth / 2;
+        const halfY = container.clientHeight / 2;
+
+        // Wrap values for smooth looping
+        const wrapX = gsap.utils.wrap(-halfX, 0);
+        const wrapY = gsap.utils.wrap(-halfY, 0);
+
+        // quickTo for smooth x/y updates
+        const xTo = gsap.quickTo(container, 'x', {
+            duration: 1.5,
+            ease: "power4",
+            modifiers: {
+                x: gsap.utils.unitize(wrapX)
+            }
+        });
+
+        const yTo = gsap.quickTo(container, 'y', {
+            duration: 1.5,
+            ease: "power4",
+            modifiers: {
+                y: gsap.utils.unitize(wrapY)
+            }
+        });
+
+        // Incremental positions
+        let incrX = 0, incrY = 0;
+
+        // Observer to handle wheel, touch, and pointer drag
+        Observer.create({
+            target: window,
+            type: "wheel,touch,pointer",
+            onChangeX: (self) => {
+                if(self.event.type === "wheel") {
+                    incrX -= self.deltaX;
+                } else {
+                    incrX += self.deltaX * 2;
+                }
+                xTo(incrX);
+            },
+            onChangeY: (self) => {
+                if(self.event.type === "wheel") {
+                    incrY -= self.deltaY;
+                } else {
+                    incrY += self.deltaY * 2;
+                }
+                yTo(incrY);
+            }
+        });
+
+        // Optional: Randomize positions of child media elements
+        const contentEls = container.querySelectorAll('.content');
+        contentEls.forEach(content => {
+            const medias = content.querySelectorAll('.media');
+            medias.forEach(el => {
+                const randomX = (Math.random() - 0.5) * 30;
+                const randomY = (Math.random() - 0.5) * 30;
+                gsap.set(el, { xPercent: randomX, yPercent: randomY });
+            });
+        });
+
+    });
+}
+
+function effect038() {
+    // Only on large devices
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 769px)", () => {
+
+        // Select all sections with data-animation="effect038"
+        document.querySelectorAll("[data-animation='effect038']").forEach(section => {
+            const container = section.querySelector('.container');
+            if (!container) return;
+
+            const projects = container.querySelectorAll('.project');
+            if (!projects.length) return;
+
+            // Set first project active
+            projects[0].classList.add('on');
+            let currentProject = projects[0];
+            const numProjects = projects.length;
+
+            // Calculate horizontal scroll distance
+            const dist = container.clientWidth - document.body.clientWidth;
+
+            // Create horizontal scroll animation
+            gsap.to(container, {
+                x: -dist,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: section.querySelector('.pin-height') || section,
+                    pin: container,
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: true,
+                    onUpdate: self => {
+                        // Determine the closest project based on scroll progress
+                        const closestIndex = Math.round(self.progress * (numProjects - 1));
+                        const closestProject = projects[closestIndex];
+
+                        if (closestProject !== currentProject) {
+                            currentProject.classList.remove('on');
+                            closestProject.classList.add('on');
+                            currentProject = closestProject;
+                        }
+                    }
+                }
+            });
+        });
+    });
+}
+
+function effect007() {
+    // Optional: Lenis smooth scroll
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({ autoRaf: true });
+    }
+
+    // Select all sections with data-animation="effect007"
+    document.querySelectorAll("[data-animation='effect007']").forEach(section => {
+        const container = section.querySelector('.container');
+        const pinHeight = section.querySelector('.pin-height');
+        const circles = section.querySelectorAll('.circle');
+
+        if (!container || !pinHeight || !circles.length) return;
+
+        // Hide .scroll element on scroll
+        const scrollEl = section.querySelector('.scroll');
+        if (scrollEl) {
+            gsap.to(scrollEl, {
+                autoAlpha: 0,
+                duration: 0.2,
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top top',
+                    end: 'top top-=1',
+                    toggleActions: "play none reverse none"
+                }
+            });
+        }
+
+        // Pin container during scroll
+        ScrollTrigger.create({
+            trigger: pinHeight,
+            start: 'top top',
+            end: 'bottom bottom',
+            pin: container
+        });
+
+        // Rotate circles on scroll
+        gsap.fromTo(circles, 
+            { rotation: 30 },       // start rotation
+            { 
+                rotation: -30,      // end rotation
+                ease: 'power2.inOut',
+                stagger: 0.06,
+                scrollTrigger: {
+                    trigger: pinHeight,
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: true
+                }
+            }
+        );
+    });
 }
