@@ -492,8 +492,8 @@ function effect026() {
         contentEls.forEach(content => {
             const medias = content.querySelectorAll('.media');
             medias.forEach(el => {
-                const randomX = (Math.random() - 0.5) * 30;
-                const randomY = (Math.random() - 0.5) * 30;
+                const randomX = (- 0.5) * 30;
+                const randomY = (- 0.5) * 30;
                 gsap.set(el, { xPercent: randomX, yPercent: randomY });
             });
         });

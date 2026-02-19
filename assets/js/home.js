@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     hoverExpand();
     initHoverCardsAnimation();
+    initThemeButtonHover();
     effect015(scrollTween);
     effect005(scrollTween);
 });
@@ -34,8 +35,9 @@ function smoothScroll() {
 }
 
 function effect015(parentTween) {
+document.querySelectorAll("[data-animation='effect015']").forEach((section ,i) => {
 
-  document.querySelectorAll('[data-animation="effect015"] .word')
+  section.querySelectorAll('.word')
     .forEach(word => {
 
       gsap.to(word.children, {
@@ -43,52 +45,51 @@ function effect015(parentTween) {
         ease: "expo.inOut",
         scrollTrigger: {
           trigger: word,
-          containerAnimation: parentTween,
-          start: "left 80%",
-          end: "left 40%",
+          containerAnimation: i==0?null:parentTween,
+          start: i==0?"bottom bottom":"top center",
+          end: i==0?"top 55%":"bottom center",
           scrub: 0.4,
           markers: false,
         }
       });
-
     });
-
+});
 }
 
 function effect005(parentTween) {
     document.querySelectorAll("[data-animation='effect005']").forEach((section) => {
 
-        const paragraph = section.querySelector(".paragraph");
-        wrapWordsInSpan(paragraph); // wrap each word in <span>
+        const paragraph = section.querySelector(".paragraph")
+        wrapWordsInSpan(paragraph)
 
-        const container = section.querySelector(".container");
-        const words = section.querySelectorAll(".word");
+        const pinHeight = section.querySelector(".pin-height")
+        const container = section.querySelector(".container")
+        const words = section.querySelectorAll(".word")
 
-        const animItems = [];
-        if (section.querySelector("h2")) animItems.push(section.querySelector("h2"));
-        animItems.push(...words);
-        if (section.querySelector(".button-wrapper")) animItems.push(section.querySelector(".button-wrapper"));
-
-        // Set initial x outside viewport
-        gsap.set(animItems, { x: "100vw" });
-
-        // Total duration in px for all words
-        const totalWidth = container.scrollWidth;
-
-        animItems.forEach((item, i) => {
-            gsap.to(item, {
-                x: 0,
-                ease: "power4.inOut",
-                scrollTrigger: {
-                    trigger: section,
-                    containerAnimation: parentTween,
-                    start: () => `left+=${i * 50} left`, // each word starts slightly after previous
-                    end: () => `left+=${i * 50 + 300} left`, // duration of animation for this word
-                    scrub: true,
-                    markers: true,
-                }
-            });
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: pinHeight, // We listen to pinHeight position
+                start: 'top+=20% bottom', // Start the animation when the top of the trigger hits the top of the viewport
+                end: 'bottom bottom', // End the animation when the bottom of the trigger hits the bottom of the viewport
+                scrub: true, // Smoothly scrub the animation based on scroll position
+                // pin: container, // Let's pin our container while all the words animate
+                containerAnimation: parentTween, // Link the scrollTrigger to the parent horizontal scroll tween
+                markers: false,
+            },
         });
+
+        gsap.set([section.querySelector("h2"), section.querySelector(".button-wrapper")], {
+                x: "100vw",
+            });
+            tl.to(
+                [section.querySelector("h2"), ...words, section.querySelector(".button-wrapper")],
+                {
+                    x: 0, // Animate the 'x' property to 0
+                    stagger: 0.02, // Stagger the animation of each element by 0.02 seconds
+                    ease: "power4.inOut", // Use a power4 easing function for smooth start and end
+                },
+                "-=0.05",
+        );
     });
 }
 
@@ -254,6 +255,60 @@ function initHoverCardsAnimation() {
 
             });
         }
+
+    });
+
+}
+
+function initThemeButtonHover() {
+
+    document.querySelectorAll(".theme-button").forEach(button => {
+
+        const svg = button.querySelector("svg");
+        if (!svg) return;
+
+        const path = svg.querySelector("polyline, path");
+        if (!path) return;
+
+        const length = path.getTotalLength();
+
+        // +2 add kar diya taake round cap bhi hide ho jaye
+        gsap.set(path, {
+            strokeDasharray: length + 2,
+            strokeDashoffset: length + 2
+        });
+
+        const hoverTL = gsap.timeline({ paused: true });
+
+        hoverTL.to(path, {
+            strokeDashoffset: 0,
+            duration: 0.5,
+            ease: "power2.out"
+        }, 0);
+
+        hoverTL.to(button, {
+            scale: 1.08,
+            duration: 0.25,
+            ease: "back.out(3)"
+        }, 0);
+
+        hoverTL.to(button, {
+            scale: 1,
+            duration: 0.4,
+            ease: "elastic.out(1, 0.4)"
+        });
+
+        button.addEventListener("mouseenter", () => {
+            hoverTL.restart();
+        });
+
+        button.addEventListener("mouseleave", () => {
+            gsap.to(path, {
+                strokeDashoffset: length + 2,
+                duration: 0.4,
+                ease: "power2.in"
+            });
+        });
 
     });
 
