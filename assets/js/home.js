@@ -261,7 +261,6 @@ function initHoverCardsAnimation() {
 }
 
 function initThemeButtonHover() {
-
     document.querySelectorAll(".theme-button").forEach(button => {
 
         const svg = button.querySelector("svg");
@@ -272,7 +271,6 @@ function initThemeButtonHover() {
 
         const length = path.getTotalLength();
 
-        // +2 add kar diya taake round cap bhi hide ho jaye
         gsap.set(path, {
             strokeDasharray: length + 2,
             strokeDashoffset: length + 2
@@ -280,19 +278,21 @@ function initThemeButtonHover() {
 
         const hoverTL = gsap.timeline({ paused: true });
 
+        // Line draw animation
         hoverTL.to(path, {
             strokeDashoffset: 0,
             duration: 0.5,
             ease: "power2.out"
         }, 0);
 
-        hoverTL.to(button, {
-            scale: 1.08,
+        // ✅ Zoom effect ONLY on icon
+        hoverTL.to(svg, {
+            scale: 1.2,
             duration: 0.25,
             ease: "back.out(3)"
         }, 0);
 
-        hoverTL.to(button, {
+        hoverTL.to(svg, {
             scale: 1,
             duration: 0.4,
             ease: "elastic.out(1, 0.4)"
