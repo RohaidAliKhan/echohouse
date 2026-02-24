@@ -105,79 +105,112 @@ function effect015() {
 }
 
 function effectBanner() {
-    document.querySelectorAll("[data-animation='effectBanner']").forEach((section) => {
 
-        const isInnerPage = section.classList.contains("innerpages-banner");
-        const slide = section.querySelector('.slide');
+  document.querySelectorAll("[data-animation='effectBanner']").forEach((section) => {
 
-        if (isInnerPage && slide) {
-            const content = slide.querySelector('.content');
-            const words = section.querySelectorAll(".word");
-            const chars = [];
+    const slide = section.querySelector(".slide");
+    const hasSlide = !!slide;
 
-            words.forEach(word => {
-                Array.from(word.children).forEach(char => chars.push(char));
-            });
+    section.querySelectorAll(".word").forEach((word) => {
 
-            gsap.set(chars, { yPercent: 0, autoAlpha: 1 });
+      if (word.classList.contains("is-splitted")) return;
+      word.classList.add("is-splitted");
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: section,
-                    pin: section,
-                    start: "top top",
-                    end: `+=${section.offsetHeight * 4}`,
-                    scrub: 0.4,
-                    markers: false,
-                }
-            });
+      const hidden = word.querySelector(".word-hidden");
+      const visible = word.querySelector(".word-visible");
 
-            tl.to(chars, {
-                yPercent: "+=100",
-                stagger: 0.02 
-            })
-            .from(slide, {
-                yPercent: 100,
-                scale: 0.5,
-                borderRadius: "200px",
-                duration: 1
-            })
-            .to(content, {
-                rotationZ: (Math.random() - 0.5) * 10,
-                scale: 0.7,
-                rotationX: 40,
-                duration: 1
-            })
-            .to(chars, {
-                autoAlpha: 0
-            }, "<")
-            .to(content, {
-                autoAlpha: 0,
-                duration: 0.5
-            });
+      const targets = hidden && visible ? [hidden, visible] : [word];
 
-        } else {
-            section.querySelectorAll(".word").forEach((word) => {
+      targets.forEach((el) => {
+        const text = el.textContent.trim();
+        el.innerHTML = "";
 
-                const chars = Array.from(word.children);
-                gsap.set(chars, { yPercent: 0, autoAlpha: 1 });
-
-                gsap.to(chars, {
-                    yPercent: 100,
-                    ease: "expo.inOut",
-                    stagger: 0.02,
-                    scrollTrigger: {
-                        trigger: word,
-                        start: isInnerPage ? "bottom center" : "bottom bottom",
-                        end: isInnerPage ? `+=${word.offsetHeight * 2}` : "top 55%",
-                        scrub: 0.4,
-                        markers: false,
-                    },
-                });
-            });
-        }
+        text.split("").forEach((char) => {
+          const span = document.createElement("span");
+          span.classList.add("char");
+          span.textContent = char === " " ? "\u00A0" : char;
+          el.appendChild(span);
+        });
+      });
 
     });
+
+    const chars = section.querySelectorAll(".char");
+
+    if (hasSlide) {
+
+      const content = slide.querySelector(".content");
+
+      gsap.set(chars, { yPercent: 100, autoAlpha: 1 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          pin: section,
+          start: "top top",
+          end: `+=${section.offsetHeight * 4}`,
+          scrub: 0.4,
+          markers: false,
+        }
+      });
+
+      tl.to(chars, {
+        yPercent: 0,
+        stagger: 0.02,
+        ease: "expo.out"
+      })
+      .to(chars, {
+        yPercent: -100,
+        stagger: 0.02,
+        ease: "expo.in"
+      })
+      .from(slide, {
+        yPercent: 100,
+        scale: 0.6,
+        borderRadius: "200px",
+        duration: 1,
+        ease: "expo.out"
+      }, "-=0.5")
+      .to(content, {
+        rotationZ: (Math.random() - 0.5) * 8,
+        scale: 0.8,
+        rotationX: 30,
+        duration: 1,
+        ease: "power2.out"
+      })
+      .to(content, {
+        autoAlpha: 0,
+        duration: 0.5
+      });
+
+    }
+
+    else {
+
+    const chars = section.querySelectorAll(".char");
+
+    gsap.set(chars, { yPercent: 100, autoAlpha: 1 });
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "+=400",
+        scrub: 0.6,
+        markers: false,
+        }
+    });
+
+    tl.to(chars, {
+        yPercent: 0,
+        stagger: 0.02,
+        ease: "expo.out"
+    });
+
+    }
+
+  });
+
 }
 
 function effect005() {

@@ -433,6 +433,11 @@ section {
   /* Depends on the font */
 }
 
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
 .heading-animation-section .word-hidden {
   position: absolute;
   left: 0;
