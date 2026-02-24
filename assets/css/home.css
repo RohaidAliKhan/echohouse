@@ -230,7 +230,7 @@ html.lenis body {
   transition: var(--transition);
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
   top: 0;
 }
 
@@ -518,8 +518,15 @@ section {
     object-fit: cover;
     text-align: center;
 }
+.mwg_effect025.is-document .card {
+    width: 25%;
+    aspect-ratio: unset;
+}
 .mwg_effect025 .card:not(:first-child) {
     margin: 0 0 0 -10vw;
+}
+.mwg_effect025.is-document .card:not(:first-child) {
+    margin: unset;
 }
 .mwg_effect025 .card .content {
     width: 100%;
@@ -1038,7 +1045,6 @@ section {
   /* scale: 0.5;
   transform: translate(0, 100%); */
   overflow: hidden;
-  /* Added to clip content with border-radius */
 }
 
 .innerpages-banner .content-wrapper {

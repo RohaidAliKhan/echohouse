@@ -2,8 +2,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
     smoothScroll();
+    initThemeButtonHover();
     hoverExpand();
     effect001();
+    effectBanner();
     effect015();
     effect005();
     effect020();
@@ -25,73 +27,156 @@ function smoothScroll() {
     gsap.ticker.lagSmoothing(0);
 }
 
+function initThemeButtonHover() {
+    document.querySelectorAll(".theme-button").forEach(button => {
+
+        const svg = button.querySelector("svg");
+        if (!svg) return;
+
+        const path = svg.querySelector("polyline, path");
+        if (!path) return;
+
+        const length = path.getTotalLength();
+
+        gsap.set(path, {
+            strokeDasharray: length,
+            strokeDashoffset: -length,
+            opacity: 0,
+            visibility: "visible"
+        });
+
+        const hoverTL = gsap.timeline({ paused: true });
+
+        hoverTL.to(path, {
+            strokeDashoffset: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power2.out"
+        }, 0);
+
+        hoverTL.to(svg, {
+            scale: 1.2,
+            duration: 0.25,
+            ease: "back.out(3)"
+        }, 0);
+
+        hoverTL.to(svg, {
+            scale: 1,
+            duration: 0.4,
+            ease: "elastic.out(1, 0.4)"
+        });
+
+        button.addEventListener("mouseenter", () => {
+            hoverTL.restart();
+        });
+
+        button.addEventListener("mouseleave", () => {
+            gsap.to(path, {
+                strokeDashoffset: -length,
+                opacity: 0,
+                duration: 0.4,
+                ease: "power2.in"
+            });
+        });
+
+    });
+}
+
 function effect015() {
     document.querySelectorAll("[data-animation='effect015']").forEach((section) => {
+
+        section.querySelectorAll(".word").forEach((word) => {
+
+            gsap.to(word.children, {
+                yPercent: "+=100",
+                ease: "expo.inOut",
+                scrollTrigger: {
+                    trigger: word,
+                    start: "bottom bottom",
+                    end: "top 55%",
+                    markers: false,
+                    scrub: 0.4,
+                },
+            });
+
+        });
+
+    });
+}
+
+function effectBanner() {
+    document.querySelectorAll("[data-animation='effectBanner']").forEach((section) => {
+
         const isInnerPage = section.classList.contains("innerpages-banner");
         const slide = section.querySelector('.slide');
 
         if (isInnerPage && slide) {
-            const content = slide.querySelector('.content'); // Define content
+            const content = slide.querySelector('.content');
             const words = section.querySelectorAll(".word");
-            const wordChildren = [];
+            const chars = [];
+
             words.forEach(word => {
-                Array.from(word.children).forEach(child => wordChildren.push(child));
+                Array.from(word.children).forEach(char => chars.push(char));
             });
+
+            gsap.set(chars, { yPercent: 0, autoAlpha: 1 });
 
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: section, // Triggering on the section makes sense for pinning
+                    trigger: section,
                     pin: section,
-                    start: "top top", // Pin when section hits top of viewport
-                    end: `+=${section.offsetHeight * 4}`, // Increase scroll distance
+                    start: "top top",
+                    end: `+=${section.offsetHeight * 4}`,
                     scrub: 0.4,
                     markers: false,
                 }
             });
 
-            // 1. Animate words
-            tl.to(wordChildren, { // Use wordChildren array here
-                yPercent: "+=100", // Increase the y position by 100%
+            tl.to(chars, {
+                yPercent: "+=100",
+                stagger: 0.02 
             })
-                // 2. Animate slide
-                .from(slide, {
-                    yPercent: 100,
-                    scale: 0.5,
-                    borderRadius: "200px",
-                    duration: 1 // Relative duration within timeline
-                })
-                // 3. Transform content
-                .to(content, {
-                    rotationZ: (Math.random() - 0.5) * 10,
-                    scale: 0.7,
-                    rotationX: 40,
-                    duration: 1
-                })
-                // 4. Fade out wordChildren
-                .to(wordChildren, {
-                    autoAlpha: 0
-                }, "<")
-                // 5. Fade out content
-                .to(content, {
-                    autoAlpha: 0,
-                    duration: 0.5
-                })
-        }
-        else {
+            .from(slide, {
+                yPercent: 100,
+                scale: 0.5,
+                borderRadius: "200px",
+                duration: 1
+            })
+            .to(content, {
+                rotationZ: (Math.random() - 0.5) * 10,
+                scale: 0.7,
+                rotationX: 40,
+                duration: 1
+            })
+            .to(chars, {
+                autoAlpha: 0
+            }, "<")
+            .to(content, {
+                autoAlpha: 0,
+                duration: 0.5
+            });
+
+        } else {
             section.querySelectorAll(".word").forEach((word) => {
-                gsap.to(word.children, {
-                    yPercent: "+=100", // Increase the y position by 100%
+
+                const chars = Array.from(word.children);
+                gsap.set(chars, { yPercent: 0, autoAlpha: 1 });
+
+                gsap.to(chars, {
+                    yPercent: 100,
                     ease: "expo.inOut",
+                    stagger: 0.02,
                     scrollTrigger: {
-                        trigger: word, // Listens to the position of word
+                        trigger: word,
                         start: isInnerPage ? "bottom center" : "bottom bottom",
                         end: isInnerPage ? `+=${word.offsetHeight * 2}` : "top 55%",
+                        scrub: 0.4,
                         markers: false,
-                        scrub: 0.4, // Smooth scrubbing, takes 0.4 seconds to complete
                     },
                 });
             });
         }
+
     });
 }
 
@@ -376,7 +461,7 @@ function effect004() {
             start: 'top top',
             end: `+=${pinHeight.offsetHeight}`,
             pin: container,// Progresses with the scroll
-            markers: true
+            markers: false
         })
 
         // We will have an array of lines that contain an array of words
@@ -508,7 +593,7 @@ function effect038() {
 
         // Select all sections with data-animation="effect038"
         document.querySelectorAll("[data-animation='effect038']").forEach(section => {
-            const container = section.querySelector('.container');
+            const container = section.querySelector('.verticle-container');
             if (!container) return;
 
             const projects = container.querySelectorAll('.project');

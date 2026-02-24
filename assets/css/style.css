@@ -219,7 +219,7 @@ html.lenis body {
   transition: var(--transition);
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
   top: 0;
 }
 
@@ -805,7 +805,7 @@ section {
   overflow: hidden;
 }
 
-.verticle-services .container {
+.verticle-services .verticle-container {
   white-space: nowrap;
   width: max-content !important;
   height: 100vh !important;
@@ -865,6 +865,7 @@ section {
 
 .innerpages-banner .slide {
   height: 100vh;
+  width: 100%;
   box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.14);
   /* transform: translate(0, 50%); */
   position: absolute;
@@ -949,8 +950,8 @@ section {
   object-fit: cover;
   border-radius: 4%;
   z-index: 5;
-  /* background: #282828; */
-  /* padding: 2rem; */
+  background: #282828;
+  padding: 2rem;
 }
 
 .image-movement-section .title {
@@ -1088,6 +1089,164 @@ section {
 
 .mwg_effect007 .card-content p {
   margin-bottom: 0;
+}
+
+.mwg_effect025 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.mwg_effect025 .title {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font: 500 normal 4vw/0.9 'Inter', sans-serif;
+    letter-spacing: -0.03em;
+}
+.mwg_effect025 .card {
+    width: 20vw;
+    aspect-ratio: 0.9;
+    background-color: transparent;
+    position: relative;
+    min-width: 280px;
+    object-fit: cover;
+    text-align: center;
+}
+.mwg_effect025.is-document .card {
+    width: 25%;
+    aspect-ratio: unset;
+}
+.mwg_effect025 .card:not(:first-child) {
+    margin: 0 0 0 -10vw;
+}
+.mwg_effect025.is-document .card:not(:first-child) {
+    margin: unset;
+}
+.mwg_effect025 .card .content {
+    width: 100%;
+    height: 100%;
+    border-radius: 1vw;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 0px 25px 0px white;
+    overflow: hidden;
+}
+.mwg_effect025 .card .content {
+    height: auto;
+    transition: unset;
+}
+
+.mwg_effect025 .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.mwg_effect025 .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  background: var(--secondary-color);
+  color: var(--white-color);
+  padding: 1.4rem;
+  padding-bottom: 1.8rem;
+}
+
+.mwg_effect025 .card-content>div {
+  padding-left: 1rem;
+  border-left: 1px solid;
+}
+
+.mwg_effect025 .card-content h4 {
+  margin-bottom: 0;
+}
+
+.mwg_effect025 .card-content .card-tag {
+  font-weight: 700;
+  font-family: "Helvetica-std-bd";
+  font-size: 0.875rem;
+}
+
+.mwg_effect025 .card-content .card-para {
+  font-size: 0.9rem;
+  font-family: "Helvetica-std-roman";
+  max-width: 15rem;
+}
+
+.mwg_effect025 .card-content p {
+  margin-bottom: 0;
+}
+.mwg_effect025 .card .content .top {
+    font: 500 normal 1.9vw / 0.9 'Inter', sans-serif;
+    letter-spacing: -0.03em;
+}
+.mwg_effect025 .card .content .bottom {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    font: 500 normal 1.1vw / 0.9 'Inter', sans-serif;
+    letter-spacing: -0.03em;
+    border-top: 1px dashed #000;
+    padding: 25px 0 0;
+}
+.mwg_effect025 .card .content .bubble {
+    width: 3.3vw;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: #FFF;
+    display: grid;
+    place-items: center;
+}
+.mwg_effect025 .card .content .bubble img {
+    width: 40%;
+    height: 40%;
+    object-fit: contain;
+}
+.mwg_effect025 .card .content .job {
+    font: 500 normal 0.9vw / normal 'IBM Plex Mono';
+    text-transform: uppercase;
+}
+.mwg_effect025 .theme-button {
+    position: relative;
+    margin-top: -4rem;
+    z-index: 9;
+}
+.mwg_effect025 .services-bottom-nav {
+    position: absolute;
+    bottom: -70px;
+    justify-content: end;
+    right: 0;
+}
+.mwg_effect025 .card:nth-child(1) {
+    z-index: 3;
+}
+.mwg_effect025 .card:nth-child(2) {
+    z-index: 3;
+}
+.mwg_effect025 .card:nth-child(3) {
+    z-index: 7;
+}
+.mwg_effect025 .card:nth-child(4) {
+    z-index: 7;
+}
+.mwg_effect025 .card:nth-child(5) {
+    z-index: 6;
+}
+
+.mwg_effect025 .card:nth-child(6) {
+    z-index: 5;
+}
+.mwg_effect025 .card:nth-child(7) {
+    z-index: 8;
+}
+.mwg_effect025 .card:nth-child(8) {
+    z-index: 6;
 }
 
 /* ==============================
