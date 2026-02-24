@@ -620,51 +620,62 @@ function effect026() {
 }
 
 function effect038() {
-    // Only on large devices
-    const mm = gsap.matchMedia();
-    mm.add("(min-width: 769px)", () => {
+  const mm = gsap.matchMedia();
 
-        // Select all sections with data-animation="effect038"
-        document.querySelectorAll("[data-animation='effect038']").forEach(section => {
-            const container = section.querySelector('.verticle-container');
-            if (!container) return;
+  mm.add("(min-width: 769px)", () => {
+    document.querySelectorAll("[data-animation='effect038']").forEach(section => {
+      const container = section.querySelector('.verticle-container');
+      const spacer = section.querySelector('.pin-height');
+      const projects = container.querySelectorAll('.project');
+      if (!container || !spacer || !projects.length) return;
 
-            const projects = container.querySelectorAll('.project');
-            if (!projects.length) return;
+      const numProjects = projects.length;
 
-            // Set first project active
-            projects[0].classList.add('on');
-            let currentProject = projects[0];
-            const numProjects = projects.length;
+      projects.forEach(p => p.classList.remove('on'));
+      projects[0].classList.add('on');
+      let currentProject = projects[0];
 
-            // Calculate horizontal scroll distance
-            const dist = container.clientWidth - document.body.clientWidth;
+      container.style.display = "flex";
+      container.style.height = "100vh";
 
-            // Create horizontal scroll animation
-            gsap.to(container, {
-                x: -dist,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: section.querySelector('.pin-height') || section,
-                    pin: container,
-                    start: 'top top',
-                    end: 'bottom bottom',
-                    scrub: true,
-                    onUpdate: self => {
-                        // Determine the closest project based on scroll progress
-                        const closestIndex = Math.round(self.progress * (numProjects - 1));
-                        const closestProject = projects[closestIndex];
+      projects.forEach(p => {
+        p.style.minWidth = "100vw";
+        p.style.height = "100vh";
+        p.style.flexShrink = 0;
+      });
 
-                        if (closestProject !== currentProject) {
-                            currentProject.classList.remove('on');
-                            closestProject.classList.add('on');
-                            currentProject = closestProject;
-                        }
-                    }
-                }
-            });
-        });
+      const dist = container.scrollWidth - window.innerWidth;
+      spacer.style.height = dist + window.innerHeight + "px";
+
+      gsap.to(container, {
+        x: -dist,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          pin: section,
+          start: 'top top',
+          end: () => "+=" + dist,
+          scrub: true,
+          invalidateOnRefresh: true,
+          onUpdate: self => {
+            const closestIndex = Math.round(self.progress * (numProjects - 1));
+            const closestProject = projects[closestIndex];
+
+            if (closestProject !== currentProject) {
+              currentProject.classList.remove('on');
+              closestProject.classList.add('on');
+              currentProject = closestProject;
+            }
+          }
+        }
+      });
+
     });
+  });
+
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  });
 }
 
 function effect007() {
