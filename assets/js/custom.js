@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     effect026();
     effect038();
     effect007();
+    effect028();
+    effect022();
 });
 
 function smoothScroll() {
@@ -104,12 +106,121 @@ function effect015() {
     });
 }
 
+// function effectBanner() {
+
+//   document.querySelectorAll("[data-animation='effectBanner']").forEach((section) => {
+
+//     const slide = section.querySelector(".slide");
+//     const hasSlide = !!slide;
+
+//     section.querySelectorAll(".word").forEach((word) => {
+
+//       if (word.classList.contains("is-splitted")) return;
+//       word.classList.add("is-splitted");
+
+//       const hidden = word.querySelector(".word-hidden");
+//       const visible = word.querySelector(".word-visible");
+
+//       const targets = hidden && visible ? [hidden, visible] : [word];
+
+//       targets.forEach((el) => {
+//         const text = el.textContent.trim();
+//         el.innerHTML = "";
+
+//         text.split("").forEach((char) => {
+//           const span = document.createElement("span");
+//           span.classList.add("char");
+//           span.textContent = char === " " ? "\u00A0" : char;
+//           el.appendChild(span);
+//         });
+//       });
+
+//     });
+
+//     const chars = section.querySelectorAll(".char");
+
+//     if (hasSlide) {
+
+//       const content = slide.querySelector(".content");
+
+//       gsap.set(chars, { yPercent: 100, autoAlpha: 1 });
+
+//       const tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: section,
+//           pin: section,
+//           start: "top top",
+//           end: `+=${section.offsetHeight * 4}`,
+//           scrub: 0.4,
+//           markers: false,
+//         }
+//       });
+
+//       tl.to(chars, {
+//         yPercent: 0,
+//         stagger: 0.02,
+//         ease: "expo.out"
+//       })
+//       .to(chars, {
+//         yPercent: -100,
+//         stagger: 0.02,
+//         ease: "expo.in"
+//       })
+//       .from(slide, {
+//         yPercent: 100,
+//         scale: 0.6,
+//         borderRadius: "200px",
+//         duration: 1,
+//         ease: "expo.out"
+//       }, "-=0.5")
+//       .to(content, {
+//         rotationZ: (Math.random() - 0.5) * 8,
+//         scale: 0.8,
+//         rotationX: 30,
+//         duration: 1,
+//         ease: "power2.out"
+//       })
+//       .to(content, {
+//         autoAlpha: 0,
+//         duration: 0.5
+//       });
+
+//     }
+
+//     else {
+
+//     const chars = section.querySelectorAll(".char");
+
+//     gsap.set(chars, { yPercent: 100, autoAlpha: 1 });
+
+//     const tl = gsap.timeline({
+//         scrollTrigger: {
+//         trigger: section,
+//         start: "top top",
+//         end: "+=400",
+//         scrub: 0.6,
+//         markers: false,
+//         }
+//     });
+
+//     tl.to(chars, {
+//         yPercent: 0,
+//         stagger: 0.02,
+//         ease: "expo.out"
+//     });
+
+//     }
+
+//   });
+
+// }
+
 function effectBanner() {
 
   document.querySelectorAll("[data-animation='effectBanner']").forEach((section) => {
 
-    const slide = section.querySelector(".slide");
-    const hasSlide = !!slide;
+    const slides = section.querySelectorAll(".slide");
+    const hasSlide = slides.length > 0;
 
     section.querySelectorAll(".word").forEach((word) => {
 
@@ -122,15 +233,19 @@ function effectBanner() {
       const targets = hidden && visible ? [hidden, visible] : [word];
 
       targets.forEach((el) => {
+
         const text = el.textContent.trim();
         el.innerHTML = "";
 
         text.split("").forEach((char) => {
+
           const span = document.createElement("span");
           span.classList.add("char");
           span.textContent = char === " " ? "\u00A0" : char;
           el.appendChild(span);
+
         });
+
       });
 
     });
@@ -139,8 +254,6 @@ function effectBanner() {
 
     if (hasSlide) {
 
-      const content = slide.querySelector(".content");
-
       gsap.set(chars, { yPercent: 100, autoAlpha: 1 });
 
       const tl = gsap.timeline({
@@ -148,9 +261,67 @@ function effectBanner() {
           trigger: section,
           pin: section,
           start: "top top",
-          end: `+=${section.offsetHeight * 4}`,
+          end: `+=${section.offsetHeight * (slides.length + 3)}`,
           scrub: 0.4,
-          markers: false,
+          markers: false
+        }
+      });
+
+      // TEXT IN
+      tl.to(chars, {
+        yPercent: 0,
+        stagger: 0.02,
+        ease: "expo.out"
+      })
+
+      // TEXT OUT
+      .to(chars, {
+        yPercent: -100,
+        stagger: 0.02,
+        ease: "expo.in"
+      });
+
+      // SLIDES LOOP
+      slides.forEach((slide, i) => {
+
+        const content = slide.querySelector(".content");
+
+        tl.from(slide, {
+          yPercent: 100,
+          scale: 0.6,
+          borderRadius: "200px",
+          duration: 1,
+          ease: "expo.out"
+        }, "+=0.2")
+
+        .to(content, {
+          rotationZ: (Math.random() - 0.5) * 8,
+          scale: 0.8,
+          rotationX: 30,
+          duration: 1,
+          ease: "power2.out"
+        })
+
+        .to(content, {
+          autoAlpha: 0,
+          duration: 0.5
+        });
+
+      });
+
+    }
+
+    else {
+
+      gsap.set(chars, { yPercent: 100, autoAlpha: 1 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=400",
+          scrub: 0.6,
+          markers: false
         }
       });
 
@@ -158,54 +329,7 @@ function effectBanner() {
         yPercent: 0,
         stagger: 0.02,
         ease: "expo.out"
-      })
-      .to(chars, {
-        yPercent: -100,
-        stagger: 0.02,
-        ease: "expo.in"
-      })
-      .from(slide, {
-        yPercent: 100,
-        scale: 0.6,
-        borderRadius: "200px",
-        duration: 1,
-        ease: "expo.out"
-      }, "-=0.5")
-      .to(content, {
-        rotationZ: (Math.random() - 0.5) * 8,
-        scale: 0.8,
-        rotationX: 30,
-        duration: 1,
-        ease: "power2.out"
-      })
-      .to(content, {
-        autoAlpha: 0,
-        duration: 0.5
       });
-
-    }
-
-    else {
-
-    const chars = section.querySelectorAll(".char");
-
-    gsap.set(chars, { yPercent: 100, autoAlpha: 1 });
-
-    const tl = gsap.timeline({
-        scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "+=400",
-        scrub: 0.6,
-        markers: false,
-        }
-    });
-
-    tl.to(chars, {
-        yPercent: 0,
-        stagger: 0.02,
-        ease: "expo.out"
-    });
 
     }
 
@@ -731,4 +855,144 @@ function effect007() {
             }
         );
     });
+}
+
+function effect028() {
+
+  gsap.registerPlugin(Observer);
+
+  const sections = document.querySelectorAll('[data-animation="effect028"]');
+
+  if (!sections.length) return;
+
+  sections.forEach((section) => {
+
+    const container = section.querySelector('.work-gallery-container');
+    const cards = section.querySelectorAll('.work-gallery');
+
+    if (!container || !cards.length) return;
+
+    const half = container.clientWidth / 2;
+
+    const wrap = gsap.utils.wrap(-half, 0);
+
+    const xTo = gsap.quickTo(container, "x", {
+      duration: 0.5,
+      ease: "power3",
+      modifiers: {
+        x: gsap.utils.unitize(wrap)
+      }
+    });
+
+    const rotateTo = gsap.quickTo(cards, "rotation", {
+      duration: 1,
+      ease: "power3"
+    });
+
+    let total = 0;
+
+    Observer.create({
+      target: container,
+      type: "touch,pointer",
+      onDrag: (self) => {
+
+        total += self.deltaX;
+        xTo(total);
+
+        const screenWidth = window.innerWidth;
+        const normalizedDelta = (self.deltaX / screenWidth) * 100;
+
+        rotateTo(-normalizedDelta);
+
+      },
+
+      onRelease: () => {
+        rotateTo(0);
+      },
+
+      onStop: () => {
+        rotateTo(0);
+      }
+
+    });
+
+  });
+
+}
+
+function effect022() {
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const sections = document.querySelectorAll('[data-animation="effect022"]');
+
+  if (!sections.length) return;
+
+  sections.forEach((root) => {
+
+    const pinHeight = root.querySelector('.pin-height');
+    const container = root.querySelector('.container');
+    const paragraphs = root.querySelectorAll('.paragraph');
+
+    if (!pinHeight || !container || !paragraphs.length) return;
+
+    /* WORD WRAP */
+    paragraphs.forEach((paragraph) => {
+
+      const text = paragraph.textContent;
+
+      paragraph.innerHTML = text
+        .split(" ")
+        .map(word => `<span class="word"><span>${word}</span></span>`)
+        .join(" ");
+
+    });
+
+    /* FIRST PARAGRAPH VISIBLE */
+    const firstWords = paragraphs[0].querySelectorAll('.word span');
+    gsap.set(firstWords, { y: "0%" });
+
+    /* PIN */
+    ScrollTrigger.create({
+      trigger: pinHeight,
+      start: "top top",
+      end: "bottom bottom",
+      pin: container
+    });
+
+    /* TIMELINE */
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: pinHeight,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true
+      }
+    });
+
+    paragraphs.forEach((paragraph, index) => {
+
+      if (paragraphs[index + 1]) {
+
+        tl.to(paragraph.querySelectorAll('.word span'), {
+          y: "100%",
+          duration: 1,
+          stagger: 0.2,
+          ease: "power4.in"
+        });
+
+        tl.to(paragraphs[index + 1].querySelectorAll('.word span'), {
+          y: "0%",
+          duration: 1,
+          delay: 1,
+          stagger: 0.2,
+          ease: "power4.out"
+        }, "<");
+
+      }
+
+    });
+
+  });
+
 }
