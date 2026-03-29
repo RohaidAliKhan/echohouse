@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   hoverExpand();
   effect001();
   effectBanner();
+
   effect015();
   effect005();
   effect020();
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   effect007();
   effect028();
   effect022();
+  horizontalScroll();
 });
 
 function smoothScroll() {
@@ -27,6 +29,25 @@ function smoothScroll() {
   });
 
   gsap.ticker.lagSmoothing(0);
+}
+
+function horizontalScroll() {
+  const containers = document.querySelectorAll(".horizontal-scroll");
+  if (!containers.length) return;
+  containers.forEach((container) => {
+    let scrollTween = gsap.to(container, {
+      x: -(container.scrollWidth - container.clientWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: container,
+        start: "top top",
+        end: () => `+=${container.scrollWidth}`,
+        pin: true,
+        scrub: 0.5,
+        markers: false,
+      },
+    });
+  });
 }
 
 function initThemeButtonHover() {
