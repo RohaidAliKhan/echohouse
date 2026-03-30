@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   effect028();
   effect022();
   horizontalScroll();
+  initMarqueeDrag();
 });
 
 function smoothScroll() {
@@ -1003,4 +1004,55 @@ function effect022() {
       }
     });
   });
+}
+
+function initMarqueeDrag() {
+
+    const section = document.querySelector('[data-effect="marquee-drag"]');
+    if (!section) return;
+
+    gsap.registerPlugin(Observer);
+
+    const content  = section.querySelector('.slider-content-container');
+    const cards    = section.querySelectorAll('.card');
+    const half     = content.clientWidth / 2;
+    const count    = cards.length / 2;
+
+    let total = 0;
+
+    const wrap = gsap.utils.wrap(-half, 0);
+
+    const xTo = gsap.quickTo(content, 'x', {
+        duration: 0.5,
+        ease: 'power3',
+        modifiers: {
+            x: gsap.utils.unitize(wrap),
+        },
+    });
+
+    const randomValues = Array.from({ length: count }, () => (Math.random() - 0.5) * 20);
+
+    const tl = gsap.timeline({ paused: true });
+    tl.to(cards, {
+        rotate:   (i) => randomValues[i % count],
+        xPercent: (i) => randomValues[i % count],
+        yPercent: (i) => randomValues[i % count],
+        scale: 0.95,
+        duration: 0.5,
+        ease: 'back.inOut(3)',
+    });
+
+    Observer.create({
+        target: content,
+        type: 'pointer,touch',
+        onPress:   ()       => tl.play(),
+        onDrag:    (self)   => { total += self.deltaX; xTo(total); },
+        onRelease: ()       => tl.reverse(),
+        onStop:    ()       => tl.reverse(),
+    });
+
+    gsap.ticker.add((_time, deltaTime) => {
+        total -= deltaTime / 10;
+        xTo(total);
+    });
 }
