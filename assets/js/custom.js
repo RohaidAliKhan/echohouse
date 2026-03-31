@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   effect028();
   effect022();
   horizontalScroll();
-  initMarqueeDrag();
+  initScrollSlides();
 });
 
 function smoothScroll() {
@@ -1006,53 +1006,77 @@ function effect022() {
   });
 }
 
-function initMarqueeDrag() {
+function initScrollSlides() {
 
-    const section = document.querySelector('[data-effect="marquee-drag"]');
+    const section = document.querySelector('[data-effect="scroll-slides"]');
     if (!section) return;
 
-    gsap.registerPlugin(Observer);
+    gsap.registerPlugin(ScrollTrigger);
 
-    const content  = section.querySelector('.slider-content-container');
-    const cards    = section.querySelectorAll('.card');
-    const half     = content.clientWidth / 2;
-    const count    = cards.length / 2;
+    const stage   = section.querySelector('.scroll-stage');
+    const track   = section.querySelector('.slides-track');
+    const cards   = Array.from(track.querySelectorAll('.slide-card'));
+    const texts   = Array.from(section.querySelectorAll('.slide-text-item'));
+    const panel   = section.querySelector('.slide-text-panel');
+    const total   = cards.length;
+    const gap     = 16;
 
-    let total = 0;
+    function cardW() {
+        return cards[0].offsetWidth + gap;
+    }
 
-    const wrap = gsap.utils.wrap(-half, 0);
+    function totalScroll() {
+        return cardW() * (total - 1);
+    }
 
-    const xTo = gsap.quickTo(content, 'x', {
-        duration: 0.5,
-        ease: 'power3',
-        modifiers: {
-            x: gsap.utils.unitize(wrap),
-        },
+    function setHeight() {
+        stage.style.height = (totalScroll() + window.innerHeight) + 'px';
+    }
+
+    // Set panel height to match tallest text item so layout doesn't jump
+    function setPanelHeight() {
+        let max = 0;
+        texts.forEach(function (t) {
+            t.style.position = 'relative';
+            t.style.opacity  = '1';
+            const h = t.offsetHeight;
+            if (h > max) max = h;
+            t.style.position = '';
+            t.style.opacity  = '';
+        });
+        panel.style.height = max + 'px';
+    }
+
+    let currentIndex = -1;
+
+    function updateActive(index) {
+        if (index === currentIndex) return;
+        currentIndex = index;
+        texts.forEach(function (t, i) {
+            t.classList.toggle('visible', i === index);
+        });
+    }
+
+    setHeight();
+    setPanelHeight();
+    updateActive(0);
+
+    ScrollTrigger.create({
+        trigger: stage,
+        start: 'top top',
+        end: function () { return '+=' + totalScroll(); },
+        scrub: 0.8,
+        onUpdate: function (self) {
+            gsap.set(track, { x: -self.progress * totalScroll() });
+            var idx = Math.min(Math.round(self.progress * (total - 1)), total - 1);
+            updateActive(idx);
+        }
     });
 
-    const randomValues = Array.from({ length: count }, () => (Math.random() - 0.5) * 20);
-
-    const tl = gsap.timeline({ paused: true });
-    tl.to(cards, {
-        rotate:   (i) => randomValues[i % count],
-        xPercent: (i) => randomValues[i % count],
-        yPercent: (i) => randomValues[i % count],
-        scale: 0.95,
-        duration: 0.5,
-        ease: 'back.inOut(3)',
+    window.addEventListener('resize', function () {
+        setHeight();
+        setPanelHeight();
+        ScrollTrigger.refresh();
     });
 
-    Observer.create({
-        target: content,
-        type: 'pointer,touch',
-        onPress:   ()       => tl.play(),
-        onDrag:    (self)   => { total += self.deltaX; xTo(total); },
-        onRelease: ()       => tl.reverse(),
-        onStop:    ()       => tl.reverse(),
-    });
-
-    gsap.ticker.add((_time, deltaTime) => {
-        total -= deltaTime / 10;
-        xTo(total);
-    });
 }
